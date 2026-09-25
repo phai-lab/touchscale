@@ -62,7 +62,6 @@ img{display:block;max-width:100%;height:auto}h1,h2,h3,p,figure{margin:0}strong,b
 .empty-state{padding:32px 16px;text-align:center;background:#fafafa}.empty-state>strong{font-size:18px;font-weight:600}.empty-state p{color:var(--muted);margin:5px 0 17px}
 
 .robot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.robot-card{position:relative;min-width:0}.robot-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#171717}
-#cap-video{object-position:50% 55%}
 .robot-card video:fullscreen{object-fit:contain;object-position:center}
 .robot-card video:-webkit-full-screen{object-fit:contain;object-position:center}
 .video-heading{position:absolute;top:9px;left:9px;z-index:1;pointer-events:none;line-height:1}.video-kind{display:inline-block;color:#fff;background:#171717a6;font-size:13px;line-height:1.5;padding:3px 8px}
