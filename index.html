@@ -2,147 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=1000">
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-system-1">
-  <link rel="stylesheet" href="chart.css">
-  <script src="samples.js" defer></script>
-  <script src="wall.js?v=wordmark-2" defer></script>
+  <link rel="stylesheet" href="styles.css?v=umi-source-2">
+  <link rel="stylesheet" href="chart.css?v=umi-source-2">
+  <script src="samples.js?v=umi-source-2" defer></script>
+  <script src="wall.js?v=wall12-1" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js?v=umi-system-1" defer></script>
+  <script src="app.js?v=umi-source-2" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#capture">Skip to content</a>
   <main id="main">
-    <header class="project-header container">
-      <h1 id="hero-title">TouchScale</h1>
-      <p class="hero-tagline">500 Hours of Human Vision and Touch for Visual–Tactile Learning</p>
-      <nav id="navigation" aria-label="Main navigation"><a href="#capture">Capture setup</a><a href="#overview">Dataset</a><a href="#dataset">Data samples</a><a href="#robots">Robot learning</a><a href="#results">Results</a></nav>
+    <header class="project-header">
+      <h1>TouchScale</h1>
+      <h2>500 Hours of Human Vision and Touch for Visual–Tactile Learning</h2>
     </header>
-    <section class="hero hero-with-wall container" aria-label="Human interaction video wall">
+    <div class="hero" aria-label="Human interaction video wall">
       <div class="data-wall" id="data-wall" aria-hidden="true">
-        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wordmark-2" tabindex="-1"></video>
+        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wall12-1" tabindex="-1"></video>
       </div>
       <div class="wall-controls">
         <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button id="wall-toggle" class="wall-toggle" aria-label="Pause background video"><svg class="wall-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg><svg class="wall-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><span class="sr-only">Pause background video</span></button>
       </div>
-    </section>
-    <p class="project-intro container">TouchScale captures <strong>500 hours of human interaction</strong> across laboratories, kitchens, workbenches, and everyday settings. Synchronized egocentric RGB-D, wrist cameras, and dense bimanual touch reveal how people see, handle, and feel the world.</p>
+    </div>
 
-    <section id="capture" class="section container">
-      <div class="section-head"><h2>Data Collection Setup</h2></div>
-      <p class="setup-copy"><strong>Egocentric RGB-D</strong> and <strong>dual wrist RGB</strong> record at 30&nbsp;Hz. Tactile gloves provide <strong>880&nbsp;taxels per hand</strong>, covering all five fingers and the palm.</p>
-      <div class="capture-toolbar"><span class="example-title">“Wring a wet cloth once”</span><div class="segmented snapshot-controls" role="group" aria-label="Choose a recorded moment"><button data-phase="before" aria-pressed="false">Before contact</button><button class="active" data-phase="contact" aria-pressed="true">Wringing</button><button data-phase="after" aria-pressed="false">After release</button></div></div>
-      <div class="capture-system" aria-label="Wearable setup and synchronized observations">
-        <figure class="capture-panel capture-equipment paper-figure">
-          <h3 class="panel-title">Human capture</h3>
-          <button class="figure-open" data-figure-title="Wearable capture setup" aria-label="Enlarge wearable capture setup"><img src="assets/images/paper/capture-setup.webp" width="721" height="1205" loading="lazy" decoding="async" alt="Wearable setup with a head RGB-D camera, wrist cameras, and tactile gloves"></button>
-        </figure>
-        <div class="capture-panel">
-          <h3 class="panel-title">Visual observations</h3>
-          <div class="capture-visual-body">
-            <div class="main-observation"><img id="observation-rgb" src="assets/images/cloth-contact.webp" alt="Egocentric RGB view during cloth wringing"><span class="image-tag">Egocentric RGB</span><span class="time-tag" id="snapshot-time" aria-live="polite">6.0 s</span></div>
-            <div class="observation-streams"><div><img id="observation-depth" src="assets/images/depth-contact.webp" alt="Synchronized head depth"><span>Head depth</span></div><div><img id="observation-left" src="assets/images/wrist-left.webp" alt="Synchronized left wrist RGB"><span>Left wrist</span></div><div><img id="observation-right" src="assets/images/wrist-right.webp" alt="Synchronized right wrist RGB"><span>Right wrist</span></div></div>
-          </div>
-        </div>
-        <div class="capture-panel">
-          <h3 class="panel-title">Bimanual touch</h3>
-          <div class="capture-touch"><img id="observation-touch" src="assets/images/touch-contact.webp" alt="Measured contact across both hands during cloth wringing"></div>
-        </div>
+    <p class="project-intro">We introduce TouchScale, a 500-hour dataset of contact-rich human interaction collected through a consistent sensing pipeline, comprising approximately 2K predefined task descriptions spanning everyday activities and structured manipulation. Each recording contains time-aligned egocentric RGB-D, bimanual wrist RGB, and bimanual tactile measurements. At this scale, we ask: what does scaling human visual–tactile data unlock for perception and robot learning? We investigate this through cross-dataset generalization, transferable representation learning, and robotic manipulation.</p>
+
+    <hr>
+    <section id="capture">
+      <h3>Data Collection Setup</h3>
+      <div class="setup-copy">
+        <b>A unified wearable setup captures synchronized vision and touch.</b><br>
+        A head-mounted RGB-D camera ① records the overall interaction, while two wrist-mounted RGB cameras ② provide detailed views of hand–object contact. Both record at 30&nbsp;Hz.<br>
+        Bimanual tactile gloves ③ each contain 880 sensing taxels across the five fingers and palm, with spatial resolution below 2&nbsp;mm. The sequence below shows time-aligned observations before contact, during wringing, and after release.
       </div>
-      <details class="hardware-details">
-        <summary>Glove hardware and sensing layout <span aria-hidden="true">+</span></summary>
-        <figure class="paper-figure">
-          <button class="figure-open" data-figure-title="Tactile glove hardware and sensing layout" aria-label="Enlarge tactile glove hardware and sensing layout"><img src="assets/images/paper/tactile-glove.webp" width="1736" height="907" loading="lazy" decoding="async" alt="Dorsal and palmar glove views and the distribution of sensing units across the fingers and palm"></button>
-          <figcaption><strong>Full-hand tactile sensing.</strong> 1.5&nbsp;×&nbsp;1.5&nbsp;mm taxels provide spatial resolution below 2&nbsp;mm.</figcaption>
-        </figure>
-      </details>
-    </section>
-
-    <section id="overview" class="section container">
-      <div class="section-head"><h2>Scale and Task Diversity</h2></div>
-      <div class="stats" aria-label="Dataset snapshot"><div class="stat"><strong>500<span> hours</span></strong><span>Human interaction</span></div><div class="stat"><strong>~87K</strong><span>Recorded clips</span></div><div class="stat" title="Estimated for 500 hours"><strong>1,964</strong><span>Task descriptions</span></div><div class="stat"><strong>1.5K+</strong><span>Everyday objects</span></div><div class="stat"><strong>800+</strong><span>Scene configurations</span></div></div>
-      <div class="distribution-panel"><div class="distribution-chart"><div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div><div id="scene-composition"></div><div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div></div></div>
-    </section>
-
-    <section id="dataset" class="section container">
-      <div class="section-head"><h2>Everyday Interactions, in Detail</h2></div>
-      <div class="explorer-tools"><div class="filters" role="group" aria-label="Filter data samples"><button class="active" data-filter="all" aria-pressed="true">All samples</button><button data-filter="Laboratory" aria-pressed="false">Laboratory</button><button data-filter="Kitchen" aria-pressed="false">Kitchen</button><button data-filter="Workbench" aria-pressed="false">Workbench</button><button data-filter="Everyday" aria-pressed="false">Everyday life</button></div><label class="search-box"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="sample-search" type="search" placeholder="Search tasks or objects…" aria-label="Search data samples"></label></div>
-      <span id="explorer-count" class="sr-only" aria-live="polite"></span>
-      <div id="scene-grid" class="scene-grid"></div>
-      <div class="empty-state" id="empty-state" hidden><strong>No matching samples</strong><p>Try another task, object, or setting.</p><button class="button" id="reset-search">Show all samples</button></div>
-      <div class="gallery-bottom"><button id="show-all" class="button small-button">Show more samples <span aria-hidden="true">↓</span></button></div>
-
-    </section>
-
-    <section id="robots" class="section container">
-      <div class="section-head"><h2>From Human Touch to Robot Learning</h2></div>
-      <p class="setup-copy">TouchScale mid-training teaches <strong>N0-VTLA</strong> to predict future tactile changes from human recordings. We then post-train on robot demonstrations and evaluate contact-rich manipulation with an <strong>xArm6</strong> arm and <strong>BrainCo Revo 2</strong> hand.</p>
-      <div class="learning-flow" role="group" aria-label="Human recordings, tactile mid-training, and robot post-training">
-        <figure class="learning-stage">
-          <h3 class="panel-title">Human recordings</h3>
-          <div class="learning-visual training-inputs"><img src="assets/images/cloth-contact.webp" width="512" height="340" loading="lazy" alt="An egocentric RGB frame from a human cloth-wringing recording"><img class="training-touch" src="assets/images/touch-contact.webp" loading="lazy" alt="Measured bimanual pressure from the same cloth-wringing moment"></div>
-          <figcaption>Paired RGB and glove pressure</figcaption>
-        </figure>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <figure class="learning-stage">
-          <h3 class="panel-title">Tactile mid-training</h3>
-          <div class="learning-visual tactile-model" aria-label="Frozen vision-language-action backbone provides context to the tactile predictor, which predicts pressure changes 50 frames ahead">
-            <div class="model-backbone">Frozen VLA backbone</div>
-            <span class="model-arrow" aria-hidden="true">↓</span>
-            <div class="model-predictor"><strong>Tactile predictor</strong><span>50-frame horizon</span></div>
-          </div>
-          <figcaption>No human action labels</figcaption>
-        </figure>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <figure class="learning-stage paper-figure">
-          <h3 class="panel-title">Robot post-training</h3>
-          <button class="figure-open learning-visual" data-figure-title="Robot platform" aria-label="Enlarge robot platform"><img src="assets/images/paper/robot-setup.webp" width="1101" height="740" loading="lazy" decoding="async" alt="xArm6 robot with a tactile glove on its robotic hand, a wrist camera, and an external RGB-D camera"></button>
-          <figcaption>50 demonstrations per task</figcaption>
+      <div class="row 50% uniform setup-figure">
+        <figure class="media-column full">
+          <button class="image fit figure-open" data-figure-title="TouchScale data collection" aria-label="Enlarge complete data collection setup and synchronized sequence"><img src="assets/images/paper/data-collection.webp" width="2201" height="1188" loading="lazy" decoding="async" alt="Complete data collection figure: wearable RGB-D camera, wrist cameras, and tactile gloves, alongside synchronized RGB, depth, wrist views, and bimanual touch at three stages of cloth wringing"></button>
         </figure>
       </div>
-      <p class="experiment-protocol">Both policy variants use the same robot demonstrations and are evaluated over <strong>20 trials per task</strong>.</p>
-      <h3 class="subsection-title">Policy rollouts</h3>
-      <div class="robot-grid">
-        <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="sorting-video" controls playsinline muted preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft and hard object sorting policy rollout"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video><div class="caption"><strong>Soft / Hard Sorting</strong></div></article>
-        <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="cap-video" controls playsinline muted preload="none" poster="assets/images/cap-removal.webp" aria-label="Bottle cap removal policy rollout"><source src="assets/videos/cap-removal.mp4" type="video/mp4"></video><div class="caption"><strong>Bottle-Cap Removal</strong></div></article>
-        <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="tube-video" controls playsinline muted preload="none" poster="assets/images/tube-policy.webp" aria-label="Test tube transfer policy rollout"><source src="assets/videos/tube-policy.mp4" type="video/mp4"></video><div class="caption"><strong>Test-Tube Transfer</strong></div></article>
-        <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="wipe-video" controls playsinline muted preload="none" poster="assets/images/wipe-policy.webp" aria-label="Whiteboard wiping policy rollout"><source src="assets/videos/wipe-policy.mp4" type="video/mp4"></video><div class="caption"><strong>Whiteboard Wipe</strong></div></article>
-      </div>
-
     </section>
 
-    <section class="section results-section container" id="results">
-      <div class="section-head"><h2>What Does Scaling Touch Unlock?</h2></div>
-      <div class="research-grid">
-        <article><strong aria-label="35.1 percent relative improvement">+35.1<span>%</span></strong><h3>Zero-shot contact IoU improvement</h3></article>
-        <article><strong>24.45<span>%</span></strong><h3>Action recognition accuracy</h3></article>
-        <article><strong class="success-change" aria-label="Robot task success increases from 22.5 percent to 57.5 percent"><span class="rate">22.5<span>%</span></span><span class="rate-arrow" aria-hidden="true">→</span><span class="rate">57.5<span>%</span></span></strong><h3>Robot task success</h3></article>
+    <hr>
+    <section id="overview">
+      <h3>Scale and Task Diversity</h3>
+      <p>The collection spans laboratories, kitchens, workbenches, and everyday environments. Its 500 hours cover approximately 87K clips, 1.5K objects, and more than 800 scene configurations, from precise tool use to bimanual handling and sustained surface contact.</p>
+      <div class="distribution-panel">
+        <div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div>
+        <div id="scene-composition"></div>
+        <div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div>
       </div>
-      <section class="result-study" aria-labelledby="robot-transfer-title">
-        <h3 id="robot-transfer-title">Learning tactile dynamics for robot control</h3>
-        <p>We mid-train the <strong>N0-VTLA</strong> tactile pathway on TouchScale while freezing the vision–language–action backbone. Given current touch and visual–language context, the model predicts <strong>tactile changes 50 frames ahead</strong>, supervised by measured pressure changes. This stage uses no human action labels. We then post-train on <strong>50 robot demonstrations per task</strong>.</p>
-        <figure class="paper-figure result-figure">
-          <button class="figure-open" data-figure-title="Scaling TouchScale mid-training" aria-label="Enlarge robot learning scaling curves"><img src="assets/images/paper/robot-scaling.webp" width="1801" height="697" loading="lazy" decoding="async" alt="Scaling curves: average success on bottle-cap removal and test-tube transfer rises from 35 to 65 percent; Top-10 future-tactile retrieval accuracy also improves"></button>
-          <figcaption><strong>Left:</strong> Mean success on bottle-cap removal and test-tube transfer after robot post-training. <strong>Right:</strong> Top-10 future-tactile retrieval accuracy, measured before robot post-training on trajectories unseen during mid-training.</figcaption>
+    </section>
+
+    <hr>
+    <section id="dataset">
+      <h3>Data Samples</h3>
+      <p>Explore contact-rich interactions across everyday settings. Each video pairs an egocentric view with synchronized wrist cameras and bimanual tactile measurements, available under “All sensors.”</p>
+      <div id="scene-grid" class="row 50% uniform sample-grid"></div>
+    </section>
+
+    <hr>
+    <section id="robots">
+      <h3>Real-World Robot Experiments</h3>
+      <div class="setup-copy">
+        <b>From human visual–tactile recordings to contact-rich robot manipulation.</b><br>
+        We use an xArm6 arm with a BrainCo Revo 2 robotic hand, tactile sensing, and ego-view and wrist cameras. A VR headset and motion-capture gloves support demonstration collection.<br>
+        TouchScale mid-training teaches the policy to predict future tactile changes before robot post-training. Both policy variants use 50 demonstrations per task and are evaluated over 20 trials per task.
+      </div>
+      <div class="row 50% uniform setup-figure">
+        <figure class="media-column full">
+          <button class="image fit figure-open" data-figure-title="Real-world robot setup and manipulation tasks" aria-label="Enlarge complete robot and teleoperation setup with four manipulation tasks"><img src="assets/images/paper/robot-experiments.webp" width="2201" height="1112" loading="lazy" decoding="async" alt="Complete real-world experiment figure: robot and teleoperation setups on the left; soft and hard sorting, bottle-cap removal, test-tube transfer, and whiteboard wiping on the right"></button>
         </figure>
-      </section>
-      <section class="result-study" aria-labelledby="tactile-prediction-title">
-        <h3 id="tactile-prediction-title">Predicting bimanual touch from vision</h3>
-        <p><strong>TouchAnything</strong> learns from TouchScale’s paired RGB and glove-pressure recordings to predict <strong>880-taxel pressure maps for each hand</strong> from egocentric RGB and estimated hand poses.</p>
-        <figure class="paper-figure result-figure">
-          <button class="figure-open" data-figure-title="Tactile prediction after TouchScale training" aria-label="Enlarge ground-truth and predicted tactile contact comparisons"><img src="assets/images/paper/tactile-prediction.webp" width="2001" height="854" loading="lazy" decoding="async" alt="Six examples after TouchScale training, showing RGB input, measured glove pressure, and predicted pressure for the left and right hands"></button>
-          <figcaption><strong>TouchScale-trained predictions.</strong> RGB input, measured pressure, and predicted pressure for both hands.</figcaption>
-        </figure>
-        <p class="study-outcome"><strong>Zero-shot transfer.</strong> With the same model and ~16&nbsp;h of training data, TouchScale achieves <strong>0.181 contact IoU</strong> on EgoTactile versus 0.134 for EgoTouch (<strong>+35.1%</strong>), without post-training.</p>
-      </section>
+      </div>
+
+      <div class="task-group">
+        <h4>(1) Soft / Hard Sorting &amp; Bottle-Cap Removal</h4>
+        <div class="task-copy"><u><b>Tasks</b></u> Distinguish objects by compliance and place the soft object in a container; remove a bottle cap and place it in a tray.<br><u><b>Contact</b></u> These tasks require material discrimination and careful small-object manipulation.</div>
+        <div class="box alt policy-pair"><div class="row 50% uniform">
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="sorting-video" controls playsinline muted loop preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft / Hard Sorting policy rollout"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Soft / Hard Sorting</figcaption>
+          </figure>
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="cap-video" controls playsinline muted loop preload="none" poster="assets/images/cap-removal.webp" aria-label="Bottle-Cap Removal policy rollout"><source src="assets/videos/cap-removal.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Bottle-Cap Removal</figcaption>
+          </figure>
+        </div></div>
+      </div>
+      <div class="task-group">
+        <h4>(2) Test-Tube Transfer &amp; Whiteboard Wipe</h4>
+        <div class="task-copy"><u><b>Tasks</b></u> Move a test tube to a different rack slot; use a cloth to wipe the marked whiteboard area.<br><u><b>Contact</b></u> These tasks require precise placement and sustained contact with a surface.</div>
+        <div class="box alt policy-pair"><div class="row 50% uniform">
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="tube-video" controls playsinline muted loop preload="none" poster="assets/images/tube-policy.webp" aria-label="Test-Tube Transfer policy rollout"><source src="assets/videos/tube-policy.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Test-Tube Transfer</figcaption>
+          </figure>
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="wipe-video" controls playsinline muted loop preload="none" poster="assets/images/wipe-policy.webp" aria-label="Whiteboard Wipe policy rollout"><source src="assets/videos/wipe-policy.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Whiteboard Wipe</figcaption>
+          </figure>
+        </div></div>
+      </div>
+    </section>
+
+    <hr>
+    <section id="results">
+      <h3>What Does Scaling Touch Unlock?</h3>
+      <p><b>Touch prediction.</b> With the same vision-to-touch architecture, TouchScale training improves zero-shot contact IoU from 0.134 to 0.181 on EgoTactile, a 35.1% relative gain.<br>
+      <b>Action recognition.</b> TouchScale pretraining achieves 24.45% average action recognition accuracy across MECCANO, Something-Something V2, and Ego-Exo4D.<br>
+      <b>Robot learning.</b> TouchScale mid-training improves average success across the four contact-rich robot tasks from 22.5% to 57.5%.</p>
     </section>
   </main>
-  <footer class="container"><strong>TouchScale</strong><a href="#main">Back to top ↑</a></footer>
   <dialog id="scene-dialog" aria-labelledby="dialog-title">
     <div class="dialog-header"><h2 id="dialog-title"></h2><button class="dialog-close" aria-label="Close video">×</button></div>
     <video id="dialog-video" controls playsinline muted loop preload="none" aria-label="Synchronized multimodal recording"></video>
@@ -152,6 +139,6 @@
     <div class="dialog-header"><h2 id="figure-title"></h2><button id="figure-close" class="dialog-close" aria-label="Close enlarged figure">×</button></div>
     <div class="figure-viewport"><img id="figure-image" alt=""></div>
   </dialog>
-  <noscript><p class="noscript-note">Enable JavaScript for the sample gallery and interactive observations. The videos above can be played directly.</p></noscript>
+  <noscript><p class="noscript-note">Enable JavaScript to explore the human recordings and interactive scene chart. Robot videos can be played directly.</p></noscript>
 </body>
 </html>

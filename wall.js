@@ -1,17 +1,16 @@
 'use strict';
 
-// One recording expands into a seamless wall, then a mosaic wordmark.
+// One recording expands into twelve clear, seamless video tiles.
 window.createDataWall = function () {
   const wall = document.querySelector('#data-wall');
   const video = document.querySelector('#wall-video');
   const toggle = document.querySelector('#wall-toggle');
   const replay = document.querySelector('#wall-replay');
   const dialogs = document.querySelectorAll('dialog');
-  const compact = window.matchMedia('(max-width: 600px)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let pausedByUser = false;
   let motionOptIn = false;
-  const loopStart = 18;
+  const loopStart = 8;
   let preservedTime = reducedMotion.matches ? loopStart : 0;
   let visible = false;
   let pendingPlay = false;
@@ -43,12 +42,11 @@ window.createDataWall = function () {
   }
   function updateSource() {
     if (video.readyState >= HTMLMediaElement.HAVE_METADATA) preservedTime = video.currentTime;
-    const suffix = compact.matches ? '-mobile' : '';
+    const suffix = '';
     const still = reducedMotion.matches && !motionOptIn ? '-expanded' : '';
-    // Keep the new 28-second film and its 18-second loop point together even
-    // when a returning visitor has the previous film cached.
-    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wordmark-2`;
-    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wordmark-2`;
+    // Version the film and loop point together for returning visitors.
+    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wall12-1`;
+    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wall12-1`;
     video.onloadedmetadata = () => {
       video.currentTime = Math.min(preservedTime, Math.max(0, video.duration - 0.1));
       syncPlayback();
@@ -86,6 +84,5 @@ window.createDataWall = function () {
   }, true));
   dialogs.forEach(dialog => dialog.addEventListener('close', syncPlayback));
   reducedMotion.addEventListener('change', () => { motionOptIn = false; syncPlayback(); });
-  compact.addEventListener('change', updateSource);
   updateSource();
 };

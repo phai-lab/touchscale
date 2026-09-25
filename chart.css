@@ -21,3 +21,9 @@
 @media(max-width:850px){.scene-pie{grid-template-columns:minmax(225px,260px) minmax(0,1fr);gap:18px;padding-inline:0}.scene-pie-key{gap:8px;font-size:14px}.scene-pie-value{font-size:13px}}
 @media(max-width:600px){.scene-pie{grid-template-columns:minmax(0,1fr);gap:8px;padding-bottom:0}.scene-pie-stage{grid-row:1;width:min(100%,360px);justify-self:center}.scene-pie-legend{width:min(100%,360px);justify-self:center;gap:2px}.scene-pie-key{min-height:37px;padding:7px 8px;font-size:15px;gap:10px}.scene-pie-value{font-size:14px}.scene-pie-tooltip{font-size:14px}.scene-pie-tooltip>span{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.scene-pie-slice,.scene-pie-key{transition:none}.scene-pie-slice.is-active{transform:none}}
+
+/* Match the surrounding UMI type scale at both desktop font sizes. */
+.scene-pie{grid-template-columns:minmax(0,20em) minmax(0,25em);gap:2em;padding:0 0 .5em;color:#a2a2a2}
+.scene-pie-key{font-size:1em;line-height:1.5;padding:.3em .5em;min-height:2em;gap:.625em}
+.scene-pie-value{font-size:.9375em}.scene-pie-legend{gap:.125em}
+.scene-pie-tooltip{font-size:1em}.scene-pie-tooltip>span{font-size:.875em}
