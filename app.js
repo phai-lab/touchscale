@@ -151,19 +151,24 @@ const chartData = {
   scenes:[['Laboratory',104.3],['Kitchen',88.2],['Workbench',98.7],['Medical / First Aid',39.8],['Office',62.6],['Packing / Shipping',48.4],['Bedroom',39.7],['Teleop Alignment',3.8],['Active Tactile',14.5]],
   verbs:[['Place',170],['Pour',94],['Transfer',87],['Put',78],['Lift',65],['Insert',63],['Wipe',56],['Press',54],['Fold',51],['Open',51],['Pull',51],['Close',45]]
 };
+const sceneChart = document.querySelector('#scene-composition');
+const scenePie = window.createScenePie(sceneChart, chartData.scenes);
 function renderChart(kind) {
   const bars = document.querySelector('#distribution-bars');
-  const maximum = Math.max(...chartData[kind].map(row => row[1]));
-  bars.setAttribute('aria-label', kind === 'scenes' ? 'Estimated scene composition, totaling 500 hours' : 'Verb frequencies across an estimated 1,964 task descriptions for 500 hours');
-  bars.replaceChildren(...chartData[kind].map(([name, value]) => {
+  scenePie.reset();
+  sceneChart.hidden = kind !== 'scenes';
+  bars.hidden = kind === 'scenes';
+  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? '500 h estimate' : '1,964 descriptions · 500 h estimate';
+  if (kind === 'scenes') return;
+  const maximum = Math.max(...chartData.verbs.map(row => row[1]));
+  bars.setAttribute('aria-label', 'Verb frequencies across an estimated 1,964 task descriptions for 500 hours');
+  bars.replaceChildren(...chartData.verbs.map(([name, value]) => {
     const row = document.createElement('div');
     row.className = 'bar-row';
-    const formatted = kind === 'scenes' ? value.toFixed(1) : String(value);
-    row.innerHTML = `<span>${name}</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:${value / maximum * 100}%"></div></div><strong>${formatted}${kind === 'scenes' ? ' h' : ''}</strong>`;
-    row.title = `${name}: ${formatted} ${kind === 'scenes' ? 'hours' : 'task descriptions'}`;
+    row.innerHTML = `<span>${name}</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="width:${value / maximum * 100}%"></div></div><strong>${value}</strong>`;
+    row.title = `${name}: ${value} task descriptions`;
     return row;
   }));
-  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? '500 h estimate' : '1,964 descriptions · 500 h estimate';
 }
 document.querySelectorAll('[data-chart]').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('[data-chart]').forEach(item => { item.classList.toggle('active', item === button); item.setAttribute('aria-pressed', String(item === button)); });

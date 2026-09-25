@@ -18,11 +18,10 @@ img{display:block;max-width:100%;height:auto}h1,h2,h3,p,figure{margin:0}strong,b
 .hero-tagline{font-size:32px;line-height:1.5;font-weight:400;color:var(--muted);margin:0 0 32px;text-wrap:balance}
 #navigation{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 27px;margin-bottom:30px;font-size:17px;line-height:1.6}#navigation a{white-space:nowrap}
 .hero{position:relative;width:min(1120px,calc(100% - 24px));aspect-ratio:16/9;background:#fff;isolation:isolate;overflow:hidden}
-.data-wall{position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect}
-.data-wall::after{content:'';position:absolute;inset:0;background:#ffffff12;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);-webkit-mask-image:radial-gradient(ellipse at center,transparent 42%,#000 84%);mask-image:radial-gradient(ellipse at center,transparent 42%,#000 84%);pointer-events:none}
+.data-wall{position:absolute;inset:0;z-index:-1;pointer-events:none}
 #wall-video{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .wall-controls{position:absolute;right:12px;bottom:12px;display:flex;gap:7px}
-.wall-controls button{display:grid;place-items:center;width:34px;height:34px;padding:0;background:#ffffffb3;color:#555;border:1px solid #00000026;border-radius:50%;backdrop-filter:blur(6px)}
+.wall-controls button{display:grid;place-items:center;width:34px;height:34px;padding:0;background:#fffffff0;color:#555;border:1px solid #00000026;border-radius:50%}
 .wall-controls button:hover{background:#fff;color:var(--accent)}.wall-controls button:focus-visible{outline-color:var(--accent)}.wall-controls svg{width:17px;height:17px}
 .wall-toggle .wall-play-icon{display:none}.wall-toggle.is-paused .wall-pause-icon{display:none}.wall-toggle.is-paused .wall-play-icon{display:block}
 .project-intro{width:min(832px,calc(100% - 48px));margin-top:24px;margin-bottom:32px;font-size:16px;line-height:1.75;text-align:center;text-wrap:balance;color:#555}

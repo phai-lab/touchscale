@@ -8,8 +8,10 @@
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="chart.css">
   <script src="samples.js" defer></script>
   <script src="wall.js" defer></script>
+  <script src="chart.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -88,7 +90,7 @@
     <section id="overview" class="section container">
       <div class="section-head"><h2>Scale and Task Diversity</h2></div>
       <div class="stats" aria-label="Dataset snapshot"><div class="stat"><strong>500<span> hours</span></strong><span>Human interaction</span></div><div class="stat"><strong>~87K</strong><span>Recorded clips</span></div><div class="stat" title="Estimated for 500 hours"><strong>1,964</strong><span>Task descriptions</span></div><div class="stat"><strong>1.5K+</strong><span>Everyday objects</span></div><div class="stat"><strong>800+</strong><span>Scene configurations</span></div></div>
-      <div class="distribution-panel"><div class="distribution-chart"><div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div><div id="distribution-bars" class="distribution-bars" aria-label="Estimated scene hours"></div></div></div>
+      <div class="distribution-panel"><div class="distribution-chart"><div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div><div id="scene-composition"></div><div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div></div></div>
     </section>
 
     <section class="section results-section container" id="results">
