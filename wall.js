@@ -1,6 +1,6 @@
 'use strict';
 
-// The introduction opens on one recording, then expands into 24 real clips.
+// One recording expands into a seamless wall, then a mosaic wordmark.
 window.createDataWall = function () {
   const wall = document.querySelector('#data-wall');
   const video = document.querySelector('#wall-video');
@@ -11,7 +11,7 @@ window.createDataWall = function () {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let pausedByUser = false;
   let motionOptIn = false;
-  const loopStart = 9;
+  const loopStart = 18;
   let preservedTime = reducedMotion.matches ? loopStart : 0;
   let visible = false;
   let pendingPlay = false;
@@ -45,8 +45,10 @@ window.createDataWall = function () {
     if (video.readyState >= HTMLMediaElement.HAVE_METADATA) preservedTime = video.currentTime;
     const suffix = compact.matches ? '-mobile' : '';
     const still = reducedMotion.matches && !motionOptIn ? '-expanded' : '';
-    video.poster = `assets/images/wall-expand${suffix}${still}.webp`;
-    video.src = `assets/videos/wall-expand${suffix}.mp4`;
+    // Keep the new 28-second film and its 18-second loop point together even
+    // when a returning visitor has the previous film cached.
+    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wordmark-1`;
+    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wordmark-1`;
     video.onloadedmetadata = () => {
       video.currentTime = Math.min(preservedTime, Math.max(0, video.duration - 0.1));
       syncPlayback();
