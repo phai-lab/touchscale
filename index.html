@@ -97,7 +97,7 @@
       <div class="section-head"><h2>What Does Scaling Touch Unlock?</h2></div>
       <div class="research-grid">
         <article><strong aria-label="35.1 percent relative improvement">+35.1<span>%</span></strong><h3>Zero-shot contact IoU improvement</h3></article>
-        <article><strong>24.45<span>%</span></strong><h3>Average linear-probe accuracy</h3></article>
+        <article><strong>24.45<span>%</span></strong><h3>Action recognition accuracy</h3></article>
         <article><strong class="success-change" aria-label="Robot task success increases from 22.5 percent to 57.5 percent"><span class="rate">22.5<span>%</span></span><span class="rate-arrow" aria-hidden="true">→</span><span class="rate">57.5<span>%</span></span></strong><h3>Robot task success</h3></article>
       </div>
       <section class="result-study" aria-labelledby="robot-transfer-title">
@@ -110,16 +110,12 @@
       </section>
       <section class="result-study" aria-labelledby="tactile-prediction-title">
         <h3 id="tactile-prediction-title">Predicting bimanual touch from vision</h3>
-        <p>We train <strong>TouchAnything</strong> with TouchScale’s synchronized visual observations and <strong>measured glove-pressure targets</strong>, normalized per sequence to [0, 1]. At inference, the model maps egocentric RGB and <strong>WiLoR hand-pose estimates</strong> from detected hand crops to pressure in each hand’s native <strong>880-taxel layout</strong>.</p>
+        <p><strong>TouchAnything</strong> learns from TouchScale’s paired RGB and glove-pressure recordings to predict <strong>880-taxel pressure maps for each hand</strong> from egocentric RGB and estimated hand poses.</p>
         <figure class="paper-figure result-figure">
           <button class="figure-open" data-figure-title="Tactile prediction after TouchScale training" aria-label="Enlarge ground-truth and predicted tactile contact comparisons"><img src="assets/images/paper/tactile-prediction.webp" width="2001" height="854" loading="lazy" decoding="async" alt="Six examples after TouchScale training, showing RGB input, measured glove pressure, and predicted pressure for the left and right hands"></button>
-          <figcaption><strong>TouchScale-trained tactile predictions.</strong> Each example compares RGB input, measured glove pressure, and model-predicted pressure for both hands. The maps show fingertip contacts and broader contact across the fingers and palms.</figcaption>
+          <figcaption><strong>TouchScale-trained predictions.</strong> RGB input, measured pressure, and predicted pressure for both hands.</figcaption>
         </figure>
-        <p class="study-outcome"><strong>Zero-shot transfer.</strong> For the +35.1% comparison, we train the same model on ~16&nbsp;h of TouchScale or 16.2&nbsp;h of EgoTouch, then test directly on EgoTactile without post-training. Predictions and measurements are pooled into <strong>12 shared anatomical regions</strong> to compare different sensors. Contact IoU increases from <strong>0.134 to 0.181</strong>.</p>
-      </section>
-      <section class="result-study" aria-labelledby="visual-features-title">
-        <h3 id="visual-features-title">Learning transferable visual features</h3>
-        <p>We pretrain <strong>Hiera-B</strong> on TouchScale using tactile prediction as the learning objective. We then freeze the visual encoder and train linear classifiers on MECCANO, Something-Something V2, and Ego-Exo4D. The resulting features achieve <strong>24.45% average recognition accuracy</strong> across the three benchmarks.</p>
+        <p class="study-outcome"><strong>Zero-shot transfer.</strong> With the same model and ~16&nbsp;h of training data, TouchScale achieves <strong>0.181 contact IoU</strong> on EgoTactile versus 0.134 for EgoTouch (<strong>+35.1%</strong>), without post-training.</p>
       </section>
     </section>
   </main>
