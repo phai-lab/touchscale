@@ -16,6 +16,32 @@ function watchVideo(video) {
   });
 }
 
+// UMI-style opening: both views play together while visible. A foreground
+// sample, video-wall replay, or dialog still takes precedence over the pair.
+const openingVideos = [...document.querySelectorAll('[data-playback-group="opening"]')];
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let openingVisible = false;
+function playOpening() {
+  if (!openingVisible || document.hidden || reduceMotion.matches || document.querySelector('dialog[open]')) return;
+  if ([...document.querySelectorAll('video')].some(video => !openingVideos.includes(video) && video.id !== 'wall-video' && !video.paused)) return;
+  document.querySelector('#wall-video').pause();
+  openingVideos.forEach(video => video.play().catch(() => {}));
+}
+openingVideos.forEach(video => video.addEventListener('play', () => {
+  document.querySelectorAll('video').forEach(other => {
+    if (!openingVideos.includes(other)) other.pause();
+  });
+}));
+new IntersectionObserver(entries => {
+  openingVisible = entries[0].isIntersecting;
+  if (openingVisible) playOpening();
+  else openingVideos.forEach(video => video.pause());
+}, {threshold:.15}).observe(document.querySelector('.opening-pair'));
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) openingVideos.forEach(video => video.pause());
+  else playOpening();
+});
+
 function escapeText(text) {
   return String(text).replace(/[&<>"']/g, character => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[character]));
 }

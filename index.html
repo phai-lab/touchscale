@@ -7,12 +7,12 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-scaling-3">
+  <link rel="stylesheet" href="styles.css?v=umi-evidence-1">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
-  <script src="wall.js?v=wall20-1" defer></script>
+  <script src="wall.js?v=wall20-hd-1" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js?v=umi-source-2" defer></script>
+  <script src="app.js?v=umi-evidence-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#capture">Skip to content</a>
@@ -21,20 +21,24 @@
       <h1>TouchScale</h1>
       <h2>500 Hours of Human Vision and Touch for Visual–Tactile Learning</h2>
     </header>
-    <div class="hero" aria-label="Human interaction video wall">
-      <div class="data-wall" id="data-wall" aria-hidden="true">
-        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wall20-1" tabindex="-1"></video>
+    <section id="introduction" class="opening">
+      <div class="row 50% uniform opening-pair">
+        <figure class="media-column half">
+          <h4>Human vision and touch</h4>
+          <div class="image fit opening-media">
+            <video id="hero-touch" data-playback-group="opening" controls muted loop playsinline preload="metadata" poster="assets/images/hero-touch.webp" aria-label="Human sponge manipulation with synchronized measured tactile contact"><source src="assets/videos/hero-touch.mp4" type="video/mp4"></video>
+          </div>
+        </figure>
+        <figure class="media-column half">
+          <h4>Policy rollout</h4>
+          <div class="image fit opening-media">
+            <video id="hero-robot" data-playback-group="opening" controls muted loop playsinline preload="metadata" poster="assets/images/hero-robot.webp" aria-label="Robot policy transferring a test tube"><source src="assets/videos/hero-robot.mp4" type="video/mp4"></video>
+          </div>
+        </figure>
       </div>
-      <div class="wall-wordmark" aria-hidden="true">TouchScale</div>
-      <div class="wall-controls">
-        <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button id="wall-toggle" class="wall-toggle" aria-label="Pause background video"><svg class="wall-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg><svg class="wall-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><span class="sr-only">Pause background video</span></button>
-      </div>
-    </div>
+      <p class="project-intro">500 hours of human vision and touch for contact-rich robot learning.</p>
+    </section>
 
-    <p class="project-intro">We introduce TouchScale, a 500-hour dataset of contact-rich human interaction collected through a consistent sensing pipeline, comprising approximately 2K predefined task descriptions spanning everyday activities and structured manipulation. Each recording contains time-aligned egocentric RGB-D, bimanual wrist RGB, and bimanual tactile measurements. At this scale, we ask: what does scaling human visual–tactile data unlock for perception and robot learning? We investigate this through cross-dataset generalization, transferable representation learning, and robotic manipulation.</p>
-
-    <hr>
     <section id="capture">
       <h3>Data Collection Setup</h3>
       <div class="setup-copy">
@@ -49,10 +53,19 @@
       </div>
     </section>
 
-    <hr>
     <section id="overview">
       <h3>Scale and Task Diversity</h3>
-      <p>The collection spans laboratories, kitchens, workbenches, and everyday environments. Its 500 hours cover approximately 87K clips, 1.5K objects, and more than 800 scene configurations, from precise tool use to bimanual handling and sustained surface contact.</p>
+      <div class="hero" aria-label="Human interaction video wall">
+        <div class="data-wall" id="data-wall" aria-hidden="true">
+          <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wall20-hd-1" tabindex="-1"></video>
+        </div>
+        <div class="wall-wordmark" aria-hidden="true">TouchScale</div>
+        <div class="wall-controls">
+          <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button id="wall-toggle" class="wall-toggle" aria-label="Pause background video"><svg class="wall-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg><svg class="wall-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><span class="sr-only">Pause background video</span></button>
+        </div>
+      </div>
+      <p>500 hours across laboratories, kitchens, workbenches, and everyday environments.</p>
       <div class="distribution-panel">
         <div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div>
         <div id="scene-composition"></div>
@@ -60,14 +73,12 @@
       </div>
     </section>
 
-    <hr>
     <section id="dataset">
       <h3>Data Samples</h3>
       <p>Explore contact-rich interactions across everyday settings. Each video pairs an egocentric view with synchronized wrist cameras and bimanual tactile measurements, available under “All sensors.”</p>
       <div id="scene-grid" class="row 50% uniform sample-grid"></div>
     </section>
 
-    <hr>
     <section id="robots">
       <h3>Real-World Robot Experiments</h3>
       <div class="setup-copy">
@@ -123,7 +134,6 @@
       </div>
     </section>
 
-    <hr>
     <section id="results">
       <h3>What Does Scaling Touch Unlock?</h3>
       <div class="result-metrics"><div class="row 50% uniform">
@@ -145,11 +155,11 @@
         <div class="row 50% uniform">
           <div class="media-column half">
             <h4 class="scaling-title">(a) Robot success scaling</h4>
-            <button class="image fit figure-open scaling-plot" data-figure-title="Robot success scaling" aria-label="Enlarge robot success scaling from Figure 5"><img src="assets/images/paper/robot-success-scaling.webp" width="1200" height="824" loading="lazy" decoding="async" alt="Figure 5 left: robot success rises from 22.5 to 57.5 percent as TouchScale mid-training data increases"></button>
+            <button class="image fit figure-open scaling-plot" data-figure-title="Robot success scaling" aria-label="Enlarge robot success scaling from Figure 5"><img src="assets/images/paper/robot-success-scaling.svg" width="432" height="295.2" loading="lazy" decoding="async" alt="Figure 5 left: robot success rises from 22.5 to 57.5 percent as TouchScale mid-training data increases"></button>
           </div>
           <div class="media-column half">
             <h4 class="scaling-title">(b) Zero-shot contact IoU ↑</h4>
-            <button class="image fit figure-open scaling-plot" data-figure-title="Zero-shot tactile prediction scaling: contact IoU" aria-label="Enlarge contact IoU scaling from Figure 6"><img src="assets/images/paper/tactile-contact-scaling.webp" width="1201" height="784" loading="lazy" decoding="async" alt="Figure 6 contact IoU: zero-shot contact prediction on EgoTactile improves consistently as TouchScale training data increases from 10 to 100 percent"></button>
+            <button class="image fit figure-open scaling-plot" data-figure-title="Zero-shot tactile prediction scaling: contact IoU" aria-label="Enlarge contact IoU scaling from Figure 6"><img src="assets/images/paper/tactile-contact-scaling.svg" width="432" height="295.2" loading="lazy" decoding="async" alt="Figure 6 contact IoU: zero-shot contact prediction on EgoTactile improves consistently as TouchScale training data increases from 10 to 100 percent"></button>
           </div>
         </div>
         <figcaption>Increasing human visual–tactile mid-training data improves robot policy performance (left). Larger TouchScale training sets also improve zero-shot tactile prediction on EgoTactile (right).</figcaption>

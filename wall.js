@@ -52,8 +52,8 @@ window.createDataWall = function () {
     const suffix = '';
     const still = reducedMotion.matches && !motionOptIn ? '-expanded' : '';
     // Version the film and loop point together for returning visitors.
-    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wall20-1`;
-    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wall20-1`;
+    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wall20-hd-1`;
+    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wall20-hd-1`;
     video.onloadedmetadata = () => {
       video.currentTime = Math.min(preservedTime, Math.max(0, video.duration - 0.1));
       syncPlayback();
