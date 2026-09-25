@@ -47,8 +47,8 @@ window.createDataWall = function () {
     const still = reducedMotion.matches && !motionOptIn ? '-expanded' : '';
     // Keep the new 28-second film and its 18-second loop point together even
     // when a returning visitor has the previous film cached.
-    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wordmark-1`;
-    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wordmark-1`;
+    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wordmark-2`;
+    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wordmark-2`;
     video.onloadedmetadata = () => {
       video.currentTime = Math.min(preservedTime, Math.max(0, video.duration - 0.1));
       syncPlayback();

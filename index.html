@@ -7,10 +7,10 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=single-line-title-1">
+  <link rel="stylesheet" href="styles.css?v=umi-layout-1">
   <link rel="stylesheet" href="chart.css">
   <script src="samples.js" defer></script>
-  <script src="wall.js?v=wordmark-1" defer></script>
+  <script src="wall.js?v=wordmark-2" defer></script>
   <script src="chart.js" defer></script>
   <script src="app.js" defer></script>
 </head>
@@ -24,7 +24,7 @@
     </header>
     <section class="hero hero-with-wall container" aria-label="Human interaction video wall">
       <div class="data-wall" id="data-wall" aria-hidden="true">
-        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wordmark-1" tabindex="-1"></video>
+        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wordmark-2" tabindex="-1"></video>
       </div>
       <div class="wall-controls">
         <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -35,18 +35,16 @@
 
     <section id="capture" class="section container">
       <div class="section-head"><h2>Data Collection Setup</h2></div>
+      <p class="setup-copy"><strong>Egocentric RGB-D</strong> and <strong>dual wrist RGB</strong> record at 30&nbsp;Hz. Tactile gloves provide <strong>880&nbsp;taxels per hand</strong>, covering all five fingers and the palm.</p>
       <div class="hardware-overview">
         <figure class="paper-figure wearable-figure">
           <button class="figure-open" data-figure-title="Wearable capture setup" aria-label="Enlarge wearable capture setup"><img src="assets/images/paper/capture-setup.webp" width="721" height="1205" loading="lazy" decoding="async" alt="Wearable setup illustration showing the head camera, tactile gloves, and two wrist cameras"></button>
         </figure>
-        <div class="hardware-detail">
-          <p><strong>Egocentric RGB-D</strong> and <strong>dual wrist RGB</strong> record at 30&nbsp;Hz. Tactile gloves provide <strong>880&nbsp;taxels per hand</strong>, covering all five fingers and the palm.</p>
-          <figure class="paper-figure">
-            <button class="figure-open" data-figure-title="Tactile glove hardware and sensing layout" aria-label="Enlarge tactile glove hardware and sensing layout"><img src="assets/images/paper/tactile-glove.webp" width="1736" height="907" loading="lazy" decoding="async" alt="Dorsal and palmar glove views with the acquisition and power modules, alongside the finger and palm sensor layout"></button>
-            <figcaption><strong>Full-hand tactile sensing.</strong> 1.5&nbsp;×&nbsp;1.5&nbsp;mm taxels provide spatial resolution below 2&nbsp;mm.</figcaption>
-          </figure>
-        </div>
+        <figure class="paper-figure">
+          <button class="figure-open" data-figure-title="Tactile glove hardware and sensing layout" aria-label="Enlarge tactile glove hardware and sensing layout"><img src="assets/images/paper/tactile-glove.webp" width="1736" height="907" loading="lazy" decoding="async" alt="Dorsal and palmar glove views with the acquisition and power modules, alongside the finger and palm sensor layout"></button>
+        </figure>
       </div>
+      <p class="setup-caption"><strong>Full-hand tactile sensing.</strong> 1.5&nbsp;×&nbsp;1.5&nbsp;mm taxels provide spatial resolution below 2&nbsp;mm.</p>
       <h3 class="subsection-title">Synchronized observations</h3>
       <div class="capture-toolbar"><span class="example-title">“Wring a wet cloth once”</span><div class="segmented snapshot-controls" role="group" aria-label="Choose a recorded moment"><button data-phase="before" aria-pressed="false">Before contact </button><button class="active" data-phase="contact" aria-pressed="true">Wringing </button><button data-phase="after" aria-pressed="false">After release </button></div></div>
       <div class="capture-grid">
@@ -67,15 +65,11 @@
 
     <section id="robots" class="section container">
       <div class="section-head"><h2>From Human Touch to Robot Learning</h2></div>
+      <p class="setup-copy">An <strong>xArm6</strong> arm with a <strong>BrainCo Revo 2</strong> hand combines tactile sensing with ego-view and wrist cameras. Both policy variants use <strong>50 robot demonstrations per task</strong> for post-training and are evaluated over <strong>20 trials per task</strong>.</p>
       <div class="robot-setup">
         <figure class="paper-figure">
           <button class="figure-open" data-figure-title="Robot platform" aria-label="Enlarge robot platform"><img src="assets/images/paper/robot-setup.webp" width="1101" height="740" loading="lazy" decoding="async" alt="xArm6 robot with a tactile glove on its robotic hand, a wrist camera, and an external RGB-D camera"></button>
         </figure>
-        <div class="robot-setup-copy">
-          <h3>Robot platform</h3>
-          <p>An <strong>xArm6</strong> arm with a <strong>BrainCo Revo 2</strong> hand combines tactile sensing with ego-view and wrist cameras.</p>
-          <p>Both policy variants use <strong>50 robot demonstrations per task</strong> for post-training and are evaluated over <strong>20 trials per task</strong>.</p>
-        </div>
       </div>
       <h3 class="subsection-title">Policy rollouts</h3>
       <div class="robot-grid">
