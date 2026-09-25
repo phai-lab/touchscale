@@ -7,12 +7,12 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-layout-1">
+  <link rel="stylesheet" href="styles.css?v=umi-system-1">
   <link rel="stylesheet" href="chart.css">
   <script src="samples.js" defer></script>
   <script src="wall.js?v=wordmark-2" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=umi-system-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,7 +20,7 @@
     <header class="project-header container">
       <h1 id="hero-title">TouchScale</h1>
       <p class="hero-tagline">500 Hours of Human Vision and Touch for Visual–Tactile Learning</p>
-      <nav id="navigation" aria-label="Main navigation"><a href="#capture">Capture setup</a><a href="#dataset">Data samples</a><a href="#robots">Robot learning</a><a href="#results">Results</a></nav>
+      <nav id="navigation" aria-label="Main navigation"><a href="#capture">Capture setup</a><a href="#overview">Dataset</a><a href="#dataset">Data samples</a><a href="#robots">Robot learning</a><a href="#results">Results</a></nav>
     </header>
     <section class="hero hero-with-wall container" aria-label="Human interaction video wall">
       <div class="data-wall" id="data-wall" aria-hidden="true">
@@ -36,21 +36,37 @@
     <section id="capture" class="section container">
       <div class="section-head"><h2>Data Collection Setup</h2></div>
       <p class="setup-copy"><strong>Egocentric RGB-D</strong> and <strong>dual wrist RGB</strong> record at 30&nbsp;Hz. Tactile gloves provide <strong>880&nbsp;taxels per hand</strong>, covering all five fingers and the palm.</p>
-      <div class="hardware-overview">
-        <figure class="paper-figure wearable-figure">
-          <button class="figure-open" data-figure-title="Wearable capture setup" aria-label="Enlarge wearable capture setup"><img src="assets/images/paper/capture-setup.webp" width="721" height="1205" loading="lazy" decoding="async" alt="Wearable setup illustration showing the head camera, tactile gloves, and two wrist cameras"></button>
+      <div class="capture-toolbar"><span class="example-title">“Wring a wet cloth once”</span><div class="segmented snapshot-controls" role="group" aria-label="Choose a recorded moment"><button data-phase="before" aria-pressed="false">Before contact</button><button class="active" data-phase="contact" aria-pressed="true">Wringing</button><button data-phase="after" aria-pressed="false">After release</button></div></div>
+      <div class="capture-system" aria-label="Wearable setup and synchronized observations">
+        <figure class="capture-panel capture-equipment paper-figure">
+          <h3 class="panel-title">Human capture</h3>
+          <button class="figure-open" data-figure-title="Wearable capture setup" aria-label="Enlarge wearable capture setup"><img src="assets/images/paper/capture-setup.webp" width="721" height="1205" loading="lazy" decoding="async" alt="Wearable setup with a head RGB-D camera, wrist cameras, and tactile gloves"></button>
         </figure>
+        <div class="capture-panel">
+          <h3 class="panel-title">Visual observations</h3>
+          <div class="capture-visual-body">
+            <div class="main-observation"><img id="observation-rgb" src="assets/images/cloth-contact.webp" alt="Egocentric RGB view during cloth wringing"><span class="image-tag">Egocentric RGB</span><span class="time-tag" id="snapshot-time" aria-live="polite">6.0 s</span></div>
+            <div class="observation-streams"><div><img id="observation-depth" src="assets/images/depth-contact.webp" alt="Synchronized head depth"><span>Head depth</span></div><div><img id="observation-left" src="assets/images/wrist-left.webp" alt="Synchronized left wrist RGB"><span>Left wrist</span></div><div><img id="observation-right" src="assets/images/wrist-right.webp" alt="Synchronized right wrist RGB"><span>Right wrist</span></div></div>
+          </div>
+        </div>
+        <div class="capture-panel">
+          <h3 class="panel-title">Bimanual touch</h3>
+          <div class="capture-touch"><img id="observation-touch" src="assets/images/touch-contact.webp" alt="Measured contact across both hands during cloth wringing"></div>
+        </div>
+      </div>
+      <details class="hardware-details">
+        <summary>Glove hardware and sensing layout <span aria-hidden="true">+</span></summary>
         <figure class="paper-figure">
-          <button class="figure-open" data-figure-title="Tactile glove hardware and sensing layout" aria-label="Enlarge tactile glove hardware and sensing layout"><img src="assets/images/paper/tactile-glove.webp" width="1736" height="907" loading="lazy" decoding="async" alt="Dorsal and palmar glove views with the acquisition and power modules, alongside the finger and palm sensor layout"></button>
+          <button class="figure-open" data-figure-title="Tactile glove hardware and sensing layout" aria-label="Enlarge tactile glove hardware and sensing layout"><img src="assets/images/paper/tactile-glove.webp" width="1736" height="907" loading="lazy" decoding="async" alt="Dorsal and palmar glove views and the distribution of sensing units across the fingers and palm"></button>
+          <figcaption><strong>Full-hand tactile sensing.</strong> 1.5&nbsp;×&nbsp;1.5&nbsp;mm taxels provide spatial resolution below 2&nbsp;mm.</figcaption>
         </figure>
-      </div>
-      <p class="setup-caption"><strong>Full-hand tactile sensing.</strong> 1.5&nbsp;×&nbsp;1.5&nbsp;mm taxels provide spatial resolution below 2&nbsp;mm.</p>
-      <h3 class="subsection-title">Synchronized observations</h3>
-      <div class="capture-toolbar"><span class="example-title">“Wring a wet cloth once”</span><div class="segmented snapshot-controls" role="group" aria-label="Choose a recorded moment"><button data-phase="before" aria-pressed="false">Before contact </button><button class="active" data-phase="contact" aria-pressed="true">Wringing </button><button data-phase="after" aria-pressed="false">After release </button></div></div>
-      <div class="capture-grid">
-        <article class="media-card"><div class="main-observation"><img id="observation-rgb" src="assets/images/cloth-contact.webp" alt="Egocentric RGB view during cloth wringing"><span class="image-tag">Egocentric RGB</span><span class="time-tag" id="snapshot-time" aria-live="polite">6.0 s</span></div></article>
-        <article class="media-card"><div class="multimodal-observation"><div class="touch-view"><img id="observation-touch" src="assets/images/touch-contact.webp" alt="Recorded tactile contact across both hands during cloth wringing"><span class="image-tag light">Bimanual tactile contact</span></div><div class="observation-streams"><div><img id="observation-depth" src="assets/images/depth-contact.webp" alt="Synchronized head depth"><span>Head depth</span></div><div><img id="observation-left" src="assets/images/wrist-left.webp" alt="Synchronized left wrist RGB"><span>Left wrist</span></div><div><img id="observation-right" src="assets/images/wrist-right.webp" alt="Synchronized right wrist RGB"><span>Right wrist</span></div></div></div></article>
-      </div>
+      </details>
+    </section>
+
+    <section id="overview" class="section container">
+      <div class="section-head"><h2>Scale and Task Diversity</h2></div>
+      <div class="stats" aria-label="Dataset snapshot"><div class="stat"><strong>500<span> hours</span></strong><span>Human interaction</span></div><div class="stat"><strong>~87K</strong><span>Recorded clips</span></div><div class="stat" title="Estimated for 500 hours"><strong>1,964</strong><span>Task descriptions</span></div><div class="stat"><strong>1.5K+</strong><span>Everyday objects</span></div><div class="stat"><strong>800+</strong><span>Scene configurations</span></div></div>
+      <div class="distribution-panel"><div class="distribution-chart"><div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div><div id="scene-composition"></div><div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div></div></div>
     </section>
 
     <section id="dataset" class="section container">
@@ -65,12 +81,31 @@
 
     <section id="robots" class="section container">
       <div class="section-head"><h2>From Human Touch to Robot Learning</h2></div>
-      <p class="setup-copy">An <strong>xArm6</strong> arm with a <strong>BrainCo Revo 2</strong> hand combines tactile sensing with ego-view and wrist cameras. Both policy variants use <strong>50 robot demonstrations per task</strong> for post-training and are evaluated over <strong>20 trials per task</strong>.</p>
-      <div class="robot-setup">
-        <figure class="paper-figure">
-          <button class="figure-open" data-figure-title="Robot platform" aria-label="Enlarge robot platform"><img src="assets/images/paper/robot-setup.webp" width="1101" height="740" loading="lazy" decoding="async" alt="xArm6 robot with a tactile glove on its robotic hand, a wrist camera, and an external RGB-D camera"></button>
+      <p class="setup-copy">TouchScale mid-training teaches <strong>N0-VTLA</strong> to predict future tactile changes from human recordings. We then post-train on robot demonstrations and evaluate contact-rich manipulation with an <strong>xArm6</strong> arm and <strong>BrainCo Revo 2</strong> hand.</p>
+      <div class="learning-flow" role="group" aria-label="Human recordings, tactile mid-training, and robot post-training">
+        <figure class="learning-stage">
+          <h3 class="panel-title">Human recordings</h3>
+          <div class="learning-visual training-inputs"><img src="assets/images/cloth-contact.webp" width="512" height="340" loading="lazy" alt="An egocentric RGB frame from a human cloth-wringing recording"><img class="training-touch" src="assets/images/touch-contact.webp" loading="lazy" alt="Measured bimanual pressure from the same cloth-wringing moment"></div>
+          <figcaption>Paired RGB and glove pressure</figcaption>
+        </figure>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <figure class="learning-stage">
+          <h3 class="panel-title">Tactile mid-training</h3>
+          <div class="learning-visual tactile-model" aria-label="Frozen vision-language-action backbone provides context to the tactile predictor, which predicts pressure changes 50 frames ahead">
+            <div class="model-backbone">Frozen VLA backbone</div>
+            <span class="model-arrow" aria-hidden="true">↓</span>
+            <div class="model-predictor"><strong>Tactile predictor</strong><span>50-frame horizon</span></div>
+          </div>
+          <figcaption>No human action labels</figcaption>
+        </figure>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <figure class="learning-stage paper-figure">
+          <h3 class="panel-title">Robot post-training</h3>
+          <button class="figure-open learning-visual" data-figure-title="Robot platform" aria-label="Enlarge robot platform"><img src="assets/images/paper/robot-setup.webp" width="1101" height="740" loading="lazy" decoding="async" alt="xArm6 robot with a tactile glove on its robotic hand, a wrist camera, and an external RGB-D camera"></button>
+          <figcaption>50 demonstrations per task</figcaption>
         </figure>
       </div>
+      <p class="experiment-protocol">Both policy variants use the same robot demonstrations and are evaluated over <strong>20 trials per task</strong>.</p>
       <h3 class="subsection-title">Policy rollouts</h3>
       <div class="robot-grid">
         <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="sorting-video" controls playsinline muted preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft and hard object sorting policy rollout"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video><div class="caption"><strong>Soft / Hard Sorting</strong></div></article>
@@ -79,12 +114,6 @@
         <article class="robot-card"><div class="video-heading"><span class="video-kind">Policy rollout</span></div><video id="wipe-video" controls playsinline muted preload="none" poster="assets/images/wipe-policy.webp" aria-label="Whiteboard wiping policy rollout"><source src="assets/videos/wipe-policy.mp4" type="video/mp4"></video><div class="caption"><strong>Whiteboard Wipe</strong></div></article>
       </div>
 
-    </section>
-
-    <section id="overview" class="section container">
-      <div class="section-head"><h2>Scale and Task Diversity</h2></div>
-      <div class="stats" aria-label="Dataset snapshot"><div class="stat"><strong>500<span> hours</span></strong><span>Human interaction</span></div><div class="stat"><strong>~87K</strong><span>Recorded clips</span></div><div class="stat" title="Estimated for 500 hours"><strong>1,964</strong><span>Task descriptions</span></div><div class="stat"><strong>1.5K+</strong><span>Everyday objects</span></div><div class="stat"><strong>800+</strong><span>Scene configurations</span></div></div>
-      <div class="distribution-panel"><div class="distribution-chart"><div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">500 h estimate</span></div><div id="scene-composition"></div><div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div></div></div>
     </section>
 
     <section class="section results-section container" id="results">

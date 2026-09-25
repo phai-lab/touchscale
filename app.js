@@ -178,6 +178,33 @@ renderChart('scenes');
 
 document.querySelectorAll('.robot-card video, #dialog-video').forEach(watchVideo);
 
+// Keep robot cards on their posters until explicitly played. This avoids
+// inactive native players showing buffering controls before any media request.
+document.querySelectorAll('.robot-card').forEach(card => {
+  const video = card.querySelector('video');
+  const source = video.querySelector('source');
+  video.dataset.src = source.getAttribute('src');
+  source.remove();
+  video.controls = false;
+  video.tabIndex = -1;
+  video.load();
+  const play = document.createElement('button');
+  play.className = 'robot-play';
+  play.setAttribute('aria-label', `Play ${video.getAttribute('aria-label')}`);
+  play.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg>';
+  play.addEventListener('click', () => {
+    if (!video.getAttribute('src')) video.src = video.dataset.src;
+    video.controls = true;
+    video.tabIndex = 0;
+    video.play().catch(() => { video.controls = true; });
+  });
+  video.addEventListener('play', () => {
+    if (document.activeElement === play) video.focus({preventScroll:true});
+    play.hidden = true;
+  });
+  card.append(play);
+});
+
 const figureDialog = document.querySelector('#figure-dialog');
 const figureImage = document.querySelector('#figure-image');
 document.querySelectorAll('.figure-open').forEach(button => {
