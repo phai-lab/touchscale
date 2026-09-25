@@ -1,11 +1,12 @@
 'use strict';
 
-// One recording expands into twelve clear, seamless video tiles.
+// One recording expands into twenty tiles, followed by the centered wordmark.
 window.createDataWall = function () {
   const wall = document.querySelector('#data-wall');
   const video = document.querySelector('#wall-video');
   const toggle = document.querySelector('#wall-toggle');
   const replay = document.querySelector('#wall-replay');
+  const wordmark = document.querySelector('.wall-wordmark');
   const dialogs = document.querySelectorAll('dialog');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let pausedByUser = false;
@@ -14,6 +15,11 @@ window.createDataWall = function () {
   let preservedTime = reducedMotion.matches ? loopStart : 0;
   let visible = false;
   let pendingPlay = false;
+
+  function syncWordmark() {
+    const progress = reducedMotion.matches && !motionOptIn ? 1 : Math.max(0, Math.min(1, (video.currentTime - 6.5) / 1.5));
+    wordmark.style.setProperty('--wordmark-opacity', progress.toFixed(3));
+  }
 
   function allowedToPlay() {
     return visible && !pausedByUser && (!reducedMotion.matches || motionOptIn) && !document.hidden && !document.querySelector('dialog[open]') &&
@@ -26,6 +32,7 @@ window.createDataWall = function () {
     toggle.querySelector('span').textContent = paused ? 'Play background video' : 'Pause background video';
   }
   function syncPlayback() {
+    syncWordmark();
     if (!allowedToPlay()) {
       video.pause();
     } else if (video.paused && !pendingPlay) {
@@ -45,8 +52,8 @@ window.createDataWall = function () {
     const suffix = '';
     const still = reducedMotion.matches && !motionOptIn ? '-expanded' : '';
     // Version the film and loop point together for returning visitors.
-    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wall12-1`;
-    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wall12-1`;
+    video.poster = `assets/images/wall-expand${suffix}${still}.webp?v=wall20-1`;
+    video.src = `assets/videos/wall-expand${suffix}.mp4?v=wall20-1`;
     video.onloadedmetadata = () => {
       video.currentTime = Math.min(preservedTime, Math.max(0, video.duration - 0.1));
       syncPlayback();
@@ -73,6 +80,7 @@ window.createDataWall = function () {
   });
   video.addEventListener('play', updateControl);
   video.addEventListener('pause', updateControl);
+  ['timeupdate', 'seeking', 'seeked', 'loadeddata'].forEach(type => video.addEventListener(type, syncWordmark));
   new IntersectionObserver(entries => {
     visible = entries[0].isIntersecting;
     syncPlayback();

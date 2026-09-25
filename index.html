@@ -7,10 +7,10 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-source-2">
+  <link rel="stylesheet" href="styles.css?v=umi-scaling-1">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
-  <script src="wall.js?v=wall12-1" defer></script>
+  <script src="wall.js?v=wall20-1" defer></script>
   <script src="chart.js" defer></script>
   <script src="app.js?v=umi-source-2" defer></script>
 </head>
@@ -23,8 +23,9 @@
     </header>
     <div class="hero" aria-label="Human interaction video wall">
       <div class="data-wall" id="data-wall" aria-hidden="true">
-        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wall12-1" tabindex="-1"></video>
+        <video id="wall-video" muted playsinline preload="metadata" poster="assets/images/wall-expand.webp?v=wall20-1" tabindex="-1"></video>
       </div>
+      <div class="wall-wordmark" aria-hidden="true">TouchScale</div>
       <div class="wall-controls">
         <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button id="wall-toggle" class="wall-toggle" aria-label="Pause background video"><svg class="wall-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg><svg class="wall-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><span class="sr-only">Pause background video</span></button>
@@ -125,9 +126,27 @@
     <hr>
     <section id="results">
       <h3>What Does Scaling Touch Unlock?</h3>
-      <p><b>Touch prediction.</b> With the same vision-to-touch architecture, TouchScale training improves zero-shot contact IoU from 0.134 to 0.181 on EgoTactile, a 35.1% relative gain.<br>
-      <b>Action recognition.</b> TouchScale pretraining achieves 24.45% average action recognition accuracy across MECCANO, Something-Something V2, and Ego-Exo4D.<br>
-      <b>Robot learning.</b> TouchScale mid-training improves average success across the four contact-rich robot tasks from 22.5% to 57.5%.</p>
+      <div class="result-metrics"><div class="row 50% uniform">
+        <div class="media-column third">
+          <strong class="result-value" aria-label="35.1 percent relative improvement in zero-shot contact IoU">+35.1<span class="unit">%</span></strong>
+          <h4 class="result-label">Contact IoU improvement</h4>
+        </div>
+        <div class="media-column third">
+          <strong class="result-value" aria-label="24.45 percent average action recognition accuracy">24.45<span class="unit">%</span></strong>
+          <h4 class="result-label">Action recognition accuracy</h4>
+        </div>
+        <div class="media-column third">
+          <strong class="result-value success-change" aria-label="Average robot task success increases from 22.5 percent to 57.5 percent"><span class="rate">22.5<span class="unit">%</span></span><span class="rate-arrow" aria-hidden="true">→</span><span class="rate">57.5<span class="unit">%</span></span></strong>
+          <h4 class="result-label">Robot task success</h4>
+        </div>
+      </div></div>
+      <h4>Scaling with More Human Touch</h4>
+      <div class="row 50% uniform scaling-figure">
+        <figure class="media-column full">
+          <button class="image fit figure-open" data-figure-title="Scaling of TouchScale mid-training" aria-label="Enlarge robot success and future-tactile prediction scaling curves"><img src="assets/images/paper/robot-scaling.webp?v=figure5-current" width="1801" height="697" loading="lazy" decoding="async" alt="Current Figure 5: robot post-training success increases from 22.5 to 57.5 percent with more TouchScale mid-training data; future-tactile prediction accuracy also increases"></button>
+          <figcaption>More TouchScale data improves robot success (left) and future-touch prediction on unseen robot data (right).</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
   <dialog id="scene-dialog" aria-labelledby="dialog-title">

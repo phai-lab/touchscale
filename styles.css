@@ -3,6 +3,7 @@
    Free for personal and commercial use under CCA 3.0 (html5up.net/license).
    Source Sans Pro is served locally to keep this supplementary site standalone. */
 @font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/source-sans-pro-latin-400.woff2') format('woff2')}
+@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/source-sans-pro-latin-700.woff2') format('woff2')}
 :root{--accent:#8c1515;--gutter:1.25em}
 *{box-sizing:border-box}
 html,body,div,span,h1,h2,h3,h4,p,a,b,u,strong,figure,figcaption,footer,header,main,section,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
@@ -48,9 +49,10 @@ a:hover{text-decoration:underline}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip-link{position:fixed;top:-100px;left:16px;z-index:100;background:#fff;padding:8px 16px}
 .skip-link:focus{top:12px}
-.hero{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;margin:0 0 1em;background:#fff}
+.hero{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;margin:0 0 1em;background:#fff;container-type:inline-size}
 .data-wall{position:absolute;inset:0;pointer-events:none}
 #wall-video{display:block;width:100%;height:100%;object-fit:cover}
+.wall-wordmark{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;opacity:var(--wordmark-opacity,0);transition:opacity .12s linear;color:#fff;font-size:10cqw;font-weight:700;line-height:1;letter-spacing:-.025em;text-shadow:0 .02em .12em #0008,0 0 .4em #0005}
 .wall-controls{position:absolute;right:.75em;bottom:.75em;display:flex;gap:.4em}
 .wall-controls button{display:grid;place-items:center;width:2.125em;height:2.125em;padding:0;border:1px solid #0002;border-radius:50%;background:#fffffff0;color:#555}
 .wall-controls button:hover{background:#fff;color:var(--accent)}
@@ -73,7 +75,18 @@ a:hover{text-decoration:underline}
 .scene-caption h4{font-size:1em;line-height:1.5;margin:0;color:inherit}
 .sample-expand{font-size:.875em;line-height:1.5;border:0;padding:0;background:transparent;color:#787878;text-decoration:underline;text-underline-offset:.15em}
 .video-kind{position:absolute;left:.5em;top:.5em;font-size:.75em;line-height:1.5;padding:.15em .4em;color:#fff;background:#0008;pointer-events:none}
-#results p{margin-bottom:1em}
+/* Results use the existing UMI columns and typeface, with emphasis on numbers. */
+.media-column.third{width:33.333333%}
+.result-metrics{padding-top:.5em;margin-bottom:2em}
+.result-value{display:flex;align-items:baseline;justify-content:center;min-height:1.5em;gap:.12em;color:var(--accent);font-size:3em;font-weight:700;line-height:1.5;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.result-value .unit{font-size:.55em}
+.result-value .rate{white-space:nowrap}
+.result-value.success-change{font-size:2em;min-height:2.25em;align-items:center;gap:.2em}
+.result-value.success-change .rate-arrow{font-size:.7em;font-weight:400;color:#a2a2a2}
+.result-label{font-size:1em;line-height:1.5;color:#787878;margin:0}
+.scaling-figure{margin-top:1em}
+.scaling-figure .image.fit{margin-bottom:1em}
+.scaling-figure figcaption{font-size:1em;line-height:1.75;text-align:left}
 /* Enlarged figures and synchronized sensor recordings remain available on demand. */
 dialog{margin:auto;width:min(70em,calc(100% - 32px));max-height:94vh;padding:0;border:1px solid #ddd;background:#fff;color:#787878;overflow:auto;box-shadow:0 24px 80px #0003}
 dialog::backdrop{background:#0009}
