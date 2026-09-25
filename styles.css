@@ -84,6 +84,7 @@ a:hover{text-decoration:underline}
 .result-value.success-change{font-size:2em;min-height:2.25em;align-items:center;gap:.2em}
 .result-value.success-change .rate-arrow{font-size:.7em;font-weight:400;color:#a2a2a2}
 .result-label{font-size:1em;line-height:1.5;color:#787878;margin:0}
+.result-comparison{margin-top:.25em;font-size:.875em;line-height:1.5;white-space:nowrap}
 .scaling-figure{margin-top:1em}
 .scaling-figure .image.fit{margin-bottom:1em}
 .scaling-figure figcaption{font-size:1em;line-height:1.75;text-align:left}
