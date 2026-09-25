@@ -7,7 +7,7 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-scaling-2">
+  <link rel="stylesheet" href="styles.css?v=umi-scaling-3">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
   <script src="wall.js?v=wall20-1" defer></script>
@@ -132,22 +132,28 @@
           <h4 class="result-label">Contact IoU improvement</h4>
         </div>
         <div class="media-column third">
-          <strong class="result-value" aria-label="6.4 percent relative improvement in average action recognition accuracy over OpenTouch, from 22.97 to 24.45 percent">+6.4<span class="unit">%</span></strong>
-          <h4 class="result-label">Action recognition accuracy</h4>
-          <div class="result-comparison">vs. OpenTouch · 22.97% → 24.45%</div>
+          <strong class="result-value" aria-label="43.7 percent relative improvement in MECCANO action recognition accuracy over EgoTouch, from 20.16 to 28.97 percent">+43.7<span class="unit">%</span></strong>
+          <h4 class="result-label">MECCANO action recognition</h4>
+          <div class="result-comparison">vs. EgoTouch · 20.16% → 28.97%</div>
         </div>
         <div class="media-column third">
           <strong class="result-value success-change" aria-label="Average robot task success increases from 22.5 percent to 57.5 percent"><span class="rate">22.5<span class="unit">%</span></span><span class="rate-arrow" aria-hidden="true">→</span><span class="rate">57.5<span class="unit">%</span></span></strong>
           <h4 class="result-label">Robot task success</h4>
         </div>
       </div></div>
-      <h4>Scaling with More Human Touch</h4>
-      <div class="row 50% uniform scaling-figure">
-        <figure class="media-column full">
-          <button class="image fit figure-open" data-figure-title="Scaling of TouchScale mid-training" aria-label="Enlarge robot success and future-tactile prediction scaling curves"><img src="assets/images/paper/robot-scaling.webp?v=figure5-current" width="1801" height="697" loading="lazy" decoding="async" alt="Current Figure 5: robot post-training success increases from 22.5 to 57.5 percent with more TouchScale mid-training data; future-tactile prediction accuracy also increases"></button>
-          <figcaption>More TouchScale data improves robot success (left) and future-touch prediction on unseen robot data (right).</figcaption>
-        </figure>
-      </div>
+      <figure class="scaling-figure">
+        <div class="row 50% uniform">
+          <div class="media-column half">
+            <h4 class="scaling-title">(a) Robot success scaling</h4>
+            <button class="image fit figure-open scaling-plot" data-figure-title="Robot success scaling" aria-label="Enlarge robot success scaling from Figure 5"><img src="assets/images/paper/robot-success-scaling.webp" width="1200" height="824" loading="lazy" decoding="async" alt="Figure 5 left: robot success rises from 22.5 to 57.5 percent as TouchScale mid-training data increases"></button>
+          </div>
+          <div class="media-column half">
+            <h4 class="scaling-title">(b) Zero-shot contact IoU ↑</h4>
+            <button class="image fit figure-open scaling-plot" data-figure-title="Zero-shot tactile prediction scaling: contact IoU" aria-label="Enlarge contact IoU scaling from Figure 6"><img src="assets/images/paper/tactile-contact-scaling.webp" width="1201" height="784" loading="lazy" decoding="async" alt="Figure 6 contact IoU: zero-shot contact prediction on EgoTactile improves consistently as TouchScale training data increases from 10 to 100 percent"></button>
+          </div>
+        </div>
+        <figcaption>Increasing human visual–tactile mid-training data improves robot policy performance (left). Larger TouchScale training sets also improve zero-shot tactile prediction on EgoTactile (right).</figcaption>
+      </figure>
     </section>
   </main>
   <dialog id="scene-dialog" aria-labelledby="dialog-title">

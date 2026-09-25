@@ -86,8 +86,9 @@ a:hover{text-decoration:underline}
 .result-label{font-size:1em;line-height:1.5;color:#787878;margin:0}
 .result-comparison{margin-top:.25em;font-size:.875em;line-height:1.5;white-space:nowrap}
 .scaling-figure{margin-top:1em}
-.scaling-figure .image.fit{margin-bottom:1em}
-.scaling-figure figcaption{font-size:1em;line-height:1.75;text-align:left}
+.scaling-title{font-size:1.1em;line-height:1.5;margin:0 0 .75em}
+.scaling-figure .image.fit{margin-bottom:0}
+.scaling-figure figcaption{margin-top:1em;max-width:calc(100% - var(--gutter));font-size:1em;line-height:1.75;text-align:left}
 /* Enlarged figures and synchronized sensor recordings remain available on demand. */
 dialog{margin:auto;width:min(70em,calc(100% - 32px));max-height:94vh;padding:0;border:1px solid #ddd;background:#fff;color:#787878;overflow:auto;box-shadow:0 24px 80px #0003}
 dialog::backdrop{background:#0009}
