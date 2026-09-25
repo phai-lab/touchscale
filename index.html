@@ -96,18 +96,31 @@
     <section class="section results-section container" id="results">
       <div class="section-head"><h2>What Does Scaling Touch Unlock?</h2></div>
       <div class="research-grid">
-        <article><strong aria-label="35.1 percent relative improvement">+35.1<span>%</span></strong><h3>Contact IoU improvement</h3></article>
-        <article><strong>24.45<span>%</span></strong><h3>Average recognition accuracy</h3></article>
+        <article><strong aria-label="35.1 percent relative improvement">+35.1<span>%</span></strong><h3>Zero-shot contact IoU improvement</h3></article>
+        <article><strong>24.45<span>%</span></strong><h3>Average linear-probe accuracy</h3></article>
         <article><strong class="success-change" aria-label="Robot task success increases from 22.5 percent to 57.5 percent"><span class="rate">22.5<span>%</span></span><span class="rate-arrow" aria-hidden="true">→</span><span class="rate">57.5<span>%</span></span></strong><h3>Robot task success</h3></article>
       </div>
-      <figure class="paper-figure result-figure">
-        <button class="figure-open" data-figure-title="Scaling TouchScale mid-training" aria-label="Enlarge robot learning scaling curves"><img src="assets/images/paper/robot-scaling.webp" width="1801" height="697" loading="lazy" decoding="async" alt="Scaling curves: robot success rises from 35 to 65 percent as TouchScale data increases; future-tactile prediction also improves"></button>
-        <figcaption><strong>Scaling robot learning.</strong> Increasing TouchScale mid-training data improves average success on bottle-cap removal and test-tube transfer (left). Future-tactile prediction accuracy also improves on held-out robot observations (right).</figcaption>
-      </figure>
-      <figure class="paper-figure result-figure">
-        <button class="figure-open" data-figure-title="Qualitative tactile prediction" aria-label="Enlarge ground-truth and predicted tactile contact comparisons"><img src="assets/images/paper/tactile-prediction.webp" width="2001" height="854" loading="lazy" decoding="async" alt="Six human interactions comparing RGB input, ground-truth tactile contact, and predicted pressure across both hands"></button>
-        <figcaption><strong>Predicting touch from vision.</strong> Six interactions pair RGB views with ground-truth and predicted tactile maps for both hands. Laboratory, packing, and everyday tasks show both fingertip and broader palm contact.</figcaption>
-      </figure>
+      <section class="result-study" aria-labelledby="robot-transfer-title">
+        <h3 id="robot-transfer-title">Learning tactile dynamics for robot control</h3>
+        <p>We mid-train the <strong>N0-VTLA</strong> tactile pathway on TouchScale while freezing the vision–language–action backbone. Given current touch and visual–language context, the model predicts <strong>tactile changes 50 frames ahead</strong>, supervised by measured pressure changes. This stage uses no human action labels. We then post-train on <strong>50 robot demonstrations per task</strong>.</p>
+        <figure class="paper-figure result-figure">
+          <button class="figure-open" data-figure-title="Scaling TouchScale mid-training" aria-label="Enlarge robot learning scaling curves"><img src="assets/images/paper/robot-scaling.webp" width="1801" height="697" loading="lazy" decoding="async" alt="Scaling curves: average success on bottle-cap removal and test-tube transfer rises from 35 to 65 percent; Top-10 future-tactile retrieval accuracy also improves"></button>
+          <figcaption><strong>Left:</strong> Mean success on bottle-cap removal and test-tube transfer after robot post-training. <strong>Right:</strong> Top-10 future-tactile retrieval accuracy, measured before robot post-training on trajectories unseen during mid-training.</figcaption>
+        </figure>
+      </section>
+      <section class="result-study" aria-labelledby="tactile-prediction-title">
+        <h3 id="tactile-prediction-title">Predicting bimanual touch from vision</h3>
+        <p>We train <strong>TouchAnything</strong> with TouchScale’s synchronized visual observations and <strong>measured glove-pressure targets</strong>, normalized per sequence to [0, 1]. At inference, the model maps egocentric RGB and <strong>WiLoR hand-pose estimates</strong> from detected hand crops to pressure in each hand’s native <strong>880-taxel layout</strong>.</p>
+        <figure class="paper-figure result-figure">
+          <button class="figure-open" data-figure-title="Tactile prediction after TouchScale training" aria-label="Enlarge ground-truth and predicted tactile contact comparisons"><img src="assets/images/paper/tactile-prediction.webp" width="2001" height="854" loading="lazy" decoding="async" alt="Six examples after TouchScale training, showing RGB input, measured glove pressure, and predicted pressure for the left and right hands"></button>
+          <figcaption><strong>TouchScale-trained tactile predictions.</strong> Each example compares RGB input, measured glove pressure, and model-predicted pressure for both hands. The maps show fingertip contacts and broader contact across the fingers and palms.</figcaption>
+        </figure>
+        <p class="study-outcome"><strong>Zero-shot transfer.</strong> For the +35.1% comparison, we train the same model on ~16&nbsp;h of TouchScale or 16.2&nbsp;h of EgoTouch, then test directly on EgoTactile without post-training. Predictions and measurements are pooled into <strong>12 shared anatomical regions</strong> to compare different sensors. Contact IoU increases from <strong>0.134 to 0.181</strong>.</p>
+      </section>
+      <section class="result-study" aria-labelledby="visual-features-title">
+        <h3 id="visual-features-title">Learning transferable visual features</h3>
+        <p>We pretrain <strong>Hiera-B</strong> on TouchScale using tactile prediction as the learning objective. We then freeze the visual encoder and train linear classifiers on MECCANO, Something-Something V2, and Ego-Exo4D. The resulting features achieve <strong>24.45% average recognition accuracy</strong> across the three benchmarks.</p>
+      </section>
     </section>
   </main>
   <footer class="container"><strong>TouchScale</strong><a href="#main">Back to top ↑</a></footer>
