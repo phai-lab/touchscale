@@ -7,12 +7,12 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-comparisons-1">
+  <link rel="stylesheet" href="styles.css?v=umi-robot-refine-2">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
-  <script src="wall.js?v=wall20-hd-1" defer></script>
+  <script src="wall.js?v=wall20-clean-2" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js?v=umi-comparisons-1" defer></script>
+  <script src="app.js?v=umi-robot-refine-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#capture">Skip to content</a>
@@ -32,11 +32,11 @@
         <figure class="media-column half">
           <h4>Policy rollout</h4>
           <div class="image fit opening-media">
-            <video id="hero-robot" data-playback-group="opening" controls muted loop playsinline preload="metadata" poster="assets/images/hero-robot.webp" aria-label="Robot policy transferring a test tube"><source src="assets/videos/hero-robot.mp4" type="video/mp4"></video>
+            <video id="hero-robot" data-playback-group="opening" controls muted loop playsinline preload="metadata" poster="assets/images/hero-robot-cap.webp" aria-label="Robot policy removing a bottle cap and releasing it into the tray"><source src="assets/videos/hero-robot-cap.mp4" type="video/mp4"></video>
           </div>
         </figure>
       </div>
-      <p class="project-intro">500 hours of human vision and touch for contact-rich robot learning.</p>
+      <p class="project-intro">Human-to-robot visual–tactile transfer.</p>
     </section>
 
     <section id="capture">
@@ -61,7 +61,6 @@
         </div>
         <div class="wall-wordmark" aria-hidden="true">TouchScale</div>
         <div class="wall-controls">
-          <button id="wall-replay" aria-label="Replay video wall introduction" title="Replay introduction"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .7 6M4 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button id="wall-toggle" class="wall-toggle" aria-label="Pause background video"><svg class="wall-pause-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 4h3v12H5zm7 0h3v12h-3z"/></svg><svg class="wall-play-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="m6 3 11 7-11 7z"/></svg><span class="sr-only">Pause background video</span></button>
         </div>
       </div>
@@ -92,18 +91,16 @@
         </figure>
       </div>
 
-      <p class="comparison-intro">Selected pilot rollouts with and without TouchScale mid-training. These examples illustrate individual outcomes; the aggregate results below come from the paper.</p>
-
       <div class="task-group" id="compare-sorting" data-comparison="sorting">
         <h4>(1) Soft / Hard Sorting</h4>
-        <div class="task-copy"><u><b>Task</b></u> Probe both objects and pick up the soft block. The videos show the pickup stage.</div>
+        <div class="task-copy"><u><b>Task</b></u> Identify the soft object and place it in the tray.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="sorting-ours" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-ours.webp" aria-label="Soft / Hard Sorting, with touchscale"><source src="assets/videos/sorting-ours.mp4" type="video/mp4"></video>
-              <span class="video-kind">Policy rollout</span>
+              <video id="sorting-demonstration" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft / Hard Sorting, human demonstration"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video>
+              <span class="video-kind">Demonstration</span>
             </div>
-            <figcaption>With TouchScale</figcaption>
+            <figcaption>Human demonstration</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
@@ -113,11 +110,6 @@
             <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
-        <div class="comparison-controls" role="group" aria-label="Soft / Hard Sorting comparison playback">
-          <button class="comparison-toggle" type="button">Play both</button>
-          <button class="comparison-replay" type="button">Replay</button>
-          <span class="comparison-status" aria-live="polite"></span>
-        </div>
       </div>
       <div class="task-group" id="compare-cap" data-comparison="cap">
         <h4>(2) Bottle-Cap Removal</h4>
@@ -125,25 +117,19 @@
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="cap-ours" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-ours.webp" aria-label="Bottle-Cap Removal, with touchscale"><source src="assets/videos/cap-ours.mp4" type="video/mp4"></video>
+              <video id="cap-ours" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-ours-head.webp" aria-label="Bottle-Cap Removal, with touchscale"><source src="assets/videos/cap-ours-head.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
             <figcaption>With TouchScale</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="cap-baseline" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-baseline.webp" aria-label="Bottle-Cap Removal, without touchscale"><source src="assets/videos/cap-baseline.mp4" type="video/mp4"></video>
+              <video id="cap-baseline" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-baseline-head.webp" aria-label="Bottle-Cap Removal, without touchscale"><source src="assets/videos/cap-baseline-head.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
             <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
-        <div class="comparison-controls" role="group" aria-label="Bottle-Cap Removal comparison playback">
-          <button class="comparison-toggle" type="button">Play both</button>
-          <button class="comparison-replay" type="button">Replay</button>
-          <span class="comparison-status" aria-live="polite"></span>
-        </div>
-        <p class="comparison-note">Illustrative runs with different seeds; this pair is not a matched ablation.</p>
       </div>
       <div class="task-group" id="compare-tube" data-comparison="tube">
         <h4>(3) Test-Tube Transfer</h4>
@@ -164,11 +150,6 @@
             <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
-        <div class="comparison-controls" role="group" aria-label="Test-Tube Transfer comparison playback">
-          <button class="comparison-toggle" type="button">Play both</button>
-          <button class="comparison-replay" type="button">Replay</button>
-          <span class="comparison-status" aria-live="polite"></span>
-        </div>
       </div>
       <div class="task-group" id="compare-wipe" data-comparison="wipe">
         <h4>(4) Whiteboard Wipe</h4>
@@ -189,11 +170,6 @@
             <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
-        <div class="comparison-controls" role="group" aria-label="Whiteboard Wipe comparison playback">
-          <button class="comparison-toggle" type="button">Play both</button>
-          <button class="comparison-replay" type="button">Replay</button>
-          <span class="comparison-status" aria-live="polite"></span>
-        </div>
       </div>
     </section>
 

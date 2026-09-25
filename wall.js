@@ -5,7 +5,6 @@ window.createDataWall = function () {
   const wall = document.querySelector('#data-wall');
   const video = document.querySelector('#wall-video');
   const toggle = document.querySelector('#wall-toggle');
-  const replay = document.querySelector('#wall-replay');
   const wordmark = document.querySelector('.wall-wordmark');
   const dialogs = document.querySelectorAll('dialog');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -64,14 +63,6 @@ window.createDataWall = function () {
     pausedByUser = !video.paused;
     if (!pausedByUser) motionOptIn = true;
     if (!pausedByUser) document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
-    syncPlayback();
-  });
-  replay.addEventListener('click', () => {
-    pausedByUser = false;
-    motionOptIn = true;
-    preservedTime = 0;
-    video.currentTime = 0;
-    document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
     syncPlayback();
   });
   video.addEventListener('ended', () => {

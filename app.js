@@ -20,7 +20,7 @@ function watchVideo(video) {
 }
 
 // UMI-style opening: both views play together while visible. A foreground
-// sample, video-wall replay, or dialog still takes precedence over the pair.
+// sample, video wall, or dialog still takes precedence over the pair.
 const openingVideos = [...document.querySelectorAll('[data-playback-group="opening"]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let openingVisible = false;
@@ -150,81 +150,10 @@ renderChart('scenes');
 
 document.querySelectorAll('.robot-card video, #dialog-video').forEach(watchVideo);
 
-// Comparisons load only on request. Wait for both files before a joint start;
-// native controls remain available for inspecting either trial independently.
-document.querySelectorAll('[data-comparison]').forEach(group => {
-  const videos = [...group.querySelectorAll('video')];
-  const toggle = group.querySelector('.comparison-toggle');
-  const replay = group.querySelector('.comparison-replay');
-  const status = group.querySelector('.comparison-status');
-  let loading = false;
-  let request = 0;
-  const update = () => {
-    toggle.textContent = loading || videos.some(video => !video.paused) ? 'Pause both' : 'Play both';
-  };
-  const pause = () => {
-    request++;
-    loading = false;
-    videos.forEach(video => video.pause());
-    status.textContent = '';
-    update();
-  };
-  const ready = video => new Promise((resolve, reject) => {
-    if (video.readyState >= 3) { resolve(); return; }
-    const cleanup = () => {
-      video.removeEventListener('canplay', success);
-      video.removeEventListener('error', failure);
-    };
-    const success = () => { cleanup(); resolve(); };
-    const failure = () => { cleanup(); reject(new Error('Video unavailable')); };
-    video.addEventListener('canplay', success);
-    video.addEventListener('error', failure);
-    if (video.networkState === HTMLMediaElement.NETWORK_EMPTY || video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) video.load();
-    else video.preload = 'auto';
-  });
-  async function play(restart = false) {
-    const currentRequest = ++request;
-    document.querySelectorAll('video').forEach(other => {
-      if (!videos.includes(other)) other.pause();
-    });
-    loading = true;
-    status.textContent = 'Loading…';
-    update();
-    try {
-      videos.forEach(video => video.preload = 'auto');
-      await Promise.all(videos.map(ready));
-      if (request !== currentRequest) return;
-      if (document.hidden || document.querySelector('dialog[open]')) { pause(); return; }
-      const start = restart || videos.some(video => video.ended) ? 0 : Math.min(...videos.map(video => video.currentTime));
-      videos.forEach(video => video.currentTime = start);
-      await Promise.all(videos.map(video => video.play().catch(error => {
-        // A native pause/seek can interrupt a pending play request. Respect it
-        // without stopping the other side of the comparison.
-        if (error.name !== 'AbortError') throw error;
-      })));
-      if (request !== currentRequest) return;
-      status.textContent = '';
-    } catch {
-      if (request !== currentRequest) return;
-      videos.forEach(video => video.pause());
-      status.textContent = 'Unable to play both. Try the individual controls.';
-    } finally {
-      if (request === currentRequest) { loading = false; update(); }
-    }
-  }
-  toggle.addEventListener('click', () => {
-    if (loading || videos.some(video => !video.paused)) pause();
-    else play();
-  });
-  replay.addEventListener('click', () => play(true));
-  videos.forEach(video => ['play', 'pause', 'ended'].forEach(event => video.addEventListener(event, update)));
-  document.addEventListener('play', event => {
-    if (event.target.tagName === 'VIDEO' && !videos.includes(event.target)) pause();
-  }, true);
-  new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) pause();
-  }).observe(group);
-  document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+// Native video controls keep the task rows visually aligned with UMI.
+// The shared playback group permits either or both views to play independently.
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) document.querySelectorAll('.robot-card video').forEach(video => video.pause());
 });
 
 const figureDialog = document.querySelector('#figure-dialog');
