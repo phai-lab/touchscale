@@ -43,9 +43,15 @@ hr{border:0;border-bottom:solid 2px #efefef;margin:2em 0}
 .image.fit img{display:block;width:100%;height:auto}
 .row.uniform.setup-figure{margin-top:.5em}
 .policy-pair{margin:1em 0}.policy-media.image.fit{margin-bottom:.5em}
-.policy-media video{width:100%;margin-right:5%;height:auto;aspect-ratio:16/9;object-fit:contain}
+.policy-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff}
 .task-group{margin-top:2em}.task-group+.task-group{margin-top:1em}
 .task-group+.task-group{border-top:2px solid #efefef;margin-top:2em;padding-top:2em}
+.comparison-intro{margin:1em 0 0}
+.comparison-controls{display:flex;align-items:center;gap:1.25em;margin-top:.75em;font-size:.875em;line-height:1.5}
+.comparison-controls button{padding:0;border:0;border-bottom:1px solid #ccc;background:transparent;color:#787878}
+.comparison-controls button:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.comparison-status{color:#787878}
+.comparison-note{margin:.75em 0 0;font-size:.875em;line-height:1.5}
 /* TouchScale media and interactions; the reading column stays unchanged. */
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible,video:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
@@ -81,6 +87,7 @@ a:hover{text-decoration:underline}
 .scene-caption h4{font-size:1em;line-height:1.5;margin:0;color:inherit}
 .sample-expand{font-size:.875em;line-height:1.5;border:0;padding:0;background:transparent;color:#787878;text-decoration:underline;text-underline-offset:.15em}
 .video-kind{position:absolute;left:.5em;top:.5em;font-size:.75em;line-height:1.5;padding:.15em .4em;color:#fff;background:#0008;pointer-events:none}
+#compare-cap .video-kind{top:calc(11.111% + .5em)}
 /* Results use the existing UMI columns and typeface, with emphasis on numbers. */
 .media-column.third{width:33.333333%}
 .result-metrics{padding-top:.5em;margin-bottom:2em}

@@ -7,12 +7,12 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=umi-evidence-1">
+  <link rel="stylesheet" href="styles.css?v=umi-comparisons-1">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
   <script src="wall.js?v=wall20-hd-1" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js?v=umi-evidence-1" defer></script>
+  <script src="app.js?v=umi-comparisons-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#capture">Skip to content</a>
@@ -84,7 +84,7 @@
       <div class="setup-copy">
         <b>From human visual–tactile recordings to contact-rich robot manipulation.</b><br>
         We use an xArm6 arm with a BrainCo Revo 2 robotic hand, tactile sensing, and ego-view and wrist cameras. A VR headset and motion-capture gloves support demonstration collection.<br>
-        TouchScale mid-training teaches the policy to predict future tactile changes before robot post-training. Both policy variants use 50 demonstrations per task and are evaluated over 20 trials per task.
+        TouchScale mid-training teaches the policy to predict future tactile changes before robot post-training. In the paper’s evaluation, both variants use 50 demonstrations per task and 20 evaluation trials per task.
       </div>
       <div class="row 50% uniform setup-figure">
         <figure class="media-column full">
@@ -92,45 +92,108 @@
         </figure>
       </div>
 
-      <div class="task-group">
-        <h4>(1) Soft / Hard Sorting &amp; Bottle-Cap Removal</h4>
-        <div class="task-copy"><u><b>Tasks</b></u> Distinguish objects by compliance and place the soft object in a container; remove a bottle cap and place it in a tray.<br><u><b>Contact</b></u> These tasks require material discrimination and careful small-object manipulation.</div>
+      <p class="comparison-intro">Selected pilot rollouts with and without TouchScale mid-training. These examples illustrate individual outcomes; the aggregate results below come from the paper.</p>
+
+      <div class="task-group" id="compare-sorting" data-comparison="sorting">
+        <h4>(1) Soft / Hard Sorting</h4>
+        <div class="task-copy"><u><b>Task</b></u> Probe both objects and pick up the soft block. The videos show the pickup stage.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="sorting-video" controls playsinline muted loop preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft / Hard Sorting policy rollout"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video>
+              <video id="sorting-ours" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-ours.webp" aria-label="Soft / Hard Sorting, with touchscale"><source src="assets/videos/sorting-ours.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Soft / Hard Sorting</figcaption>
+            <figcaption>With TouchScale</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="cap-video" controls playsinline muted loop preload="none" poster="assets/images/cap-removal.webp" aria-label="Bottle-Cap Removal policy rollout"><source src="assets/videos/cap-removal.mp4" type="video/mp4"></video>
+              <video id="sorting-baseline" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-baseline.webp" aria-label="Soft / Hard Sorting, without touchscale"><source src="assets/videos/sorting-baseline.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Bottle-Cap Removal</figcaption>
+            <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
+        <div class="comparison-controls" role="group" aria-label="Soft / Hard Sorting comparison playback">
+          <button class="comparison-toggle" type="button">Play both</button>
+          <button class="comparison-replay" type="button">Replay</button>
+          <span class="comparison-status" aria-live="polite"></span>
+        </div>
       </div>
-      <div class="task-group">
-        <h4>(2) Test-Tube Transfer &amp; Whiteboard Wipe</h4>
-        <div class="task-copy"><u><b>Tasks</b></u> Move a test tube to a different rack slot; use a cloth to wipe the marked whiteboard area.<br><u><b>Contact</b></u> These tasks require precise placement and sustained contact with a surface.</div>
+      <div class="task-group" id="compare-cap" data-comparison="cap">
+        <h4>(2) Bottle-Cap Removal</h4>
+        <div class="task-copy"><u><b>Task</b></u> Remove the cap and release it into the tray.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="tube-video" controls playsinline muted loop preload="none" poster="assets/images/tube-policy.webp" aria-label="Test-Tube Transfer policy rollout"><source src="assets/videos/tube-policy.mp4" type="video/mp4"></video>
+              <video id="cap-ours" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-ours.webp" aria-label="Bottle-Cap Removal, with touchscale"><source src="assets/videos/cap-ours.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Test-Tube Transfer</figcaption>
+            <figcaption>With TouchScale</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="wipe-video" controls playsinline muted loop preload="none" poster="assets/images/wipe-policy.webp" aria-label="Whiteboard Wipe policy rollout"><source src="assets/videos/wipe-policy.mp4" type="video/mp4"></video>
+              <video id="cap-baseline" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-baseline.webp" aria-label="Bottle-Cap Removal, without touchscale"><source src="assets/videos/cap-baseline.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Whiteboard Wipe</figcaption>
+            <figcaption>Without TouchScale</figcaption>
           </figure>
         </div></div>
+        <div class="comparison-controls" role="group" aria-label="Bottle-Cap Removal comparison playback">
+          <button class="comparison-toggle" type="button">Play both</button>
+          <button class="comparison-replay" type="button">Replay</button>
+          <span class="comparison-status" aria-live="polite"></span>
+        </div>
+        <p class="comparison-note">Illustrative runs with different seeds; this pair is not a matched ablation.</p>
+      </div>
+      <div class="task-group" id="compare-tube" data-comparison="tube">
+        <h4>(3) Test-Tube Transfer</h4>
+        <div class="task-copy"><u><b>Task</b></u> Move the test tube to another rack slot and release it.</div>
+        <div class="box alt policy-pair"><div class="row 50% uniform">
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="tube-ours" data-playback-group="tube" controls playsinline muted preload="none" poster="assets/images/tube-ours.webp" aria-label="Test-Tube Transfer, with touchscale"><source src="assets/videos/tube-ours.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>With TouchScale</figcaption>
+          </figure>
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="tube-baseline" data-playback-group="tube" controls playsinline muted preload="none" poster="assets/images/tube-baseline.webp" aria-label="Test-Tube Transfer, without touchscale"><source src="assets/videos/tube-baseline.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Without TouchScale</figcaption>
+          </figure>
+        </div></div>
+        <div class="comparison-controls" role="group" aria-label="Test-Tube Transfer comparison playback">
+          <button class="comparison-toggle" type="button">Play both</button>
+          <button class="comparison-replay" type="button">Replay</button>
+          <span class="comparison-status" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="task-group" id="compare-wipe" data-comparison="wipe">
+        <h4>(4) Whiteboard Wipe</h4>
+        <div class="task-copy"><u><b>Task</b></u> Grasp the cloth and erase the mark on the board.</div>
+        <div class="box alt policy-pair"><div class="row 50% uniform">
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="wipe-ours" data-playback-group="wipe" controls playsinline muted preload="none" poster="assets/images/wipe-ours.webp" aria-label="Whiteboard Wipe, with touchscale"><source src="assets/videos/wipe-ours.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>With TouchScale</figcaption>
+          </figure>
+          <figure class="media-column half robot-card">
+            <div class="image fit policy-media">
+              <video id="wipe-baseline" data-playback-group="wipe" controls playsinline muted preload="none" poster="assets/images/wipe-baseline.webp" aria-label="Whiteboard Wipe, without touchscale"><source src="assets/videos/wipe-baseline.mp4" type="video/mp4"></video>
+              <span class="video-kind">Policy rollout</span>
+            </div>
+            <figcaption>Without TouchScale</figcaption>
+          </figure>
+        </div></div>
+        <div class="comparison-controls" role="group" aria-label="Whiteboard Wipe comparison playback">
+          <button class="comparison-toggle" type="button">Play both</button>
+          <button class="comparison-replay" type="button">Replay</button>
+          <span class="comparison-status" aria-live="polite"></span>
+        </div>
       </div>
     </section>
 
