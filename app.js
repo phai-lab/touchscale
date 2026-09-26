@@ -120,17 +120,20 @@ dialog.addEventListener('keydown', event => {
 renderSamples();
 
 const chartData = {
-  scenes:[['Laboratory',104.3],['Kitchen',88.2],['Workbench',98.7],['Medical / First Aid',39.8],['Office',62.6],['Packing / Shipping',48.4],['Bedroom',39.7],['Teleop Alignment',3.8],['Active Tactile',14.5]],
+  // data_diversity.pdf: retain the listed projected hours (sum 503.6),
+  // rather than rescaling them to the figure's nominal 500-hour headline.
+  scenes:[['Workbench',128.6],['Laboratory',92.9],['Kitchen',85.7],['Office',55.2],['Packing / Shipping',45.7],['Medical / First Aid',41.9],['Bedroom',35.1],['Active Tactile',14.7],['Teleop Alignment',3.8]],
   verbs:[['Place',170],['Pour',94],['Transfer',87],['Put',78],['Lift',65],['Insert',63],['Wipe',56],['Press',54],['Fold',51],['Open',51],['Pull',51],['Close',45]]
 };
 const sceneChart = document.querySelector('#scene-composition');
 const scenePie = window.createScenePie(sceneChart, chartData.scenes);
+const projectedSceneHours = chartData.scenes.reduce((total, [, hours]) => total + hours, 0);
 function renderChart(kind) {
   const bars = document.querySelector('#distribution-bars');
   scenePie.reset();
   sceneChart.hidden = kind !== 'scenes';
   bars.hidden = kind === 'scenes';
-  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? '500 h estimate' : '1,964 descriptions · 500 h estimate';
+  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? `${projectedSceneHours.toFixed(1)} h projected` : '1,964 descriptions · 500 h estimate';
   if (kind === 'scenes') return;
   const maximum = Math.max(...chartData.verbs.map(row => row[1]));
   bars.setAttribute('aria-label', 'Verb frequencies across an estimated 1,964 task descriptions for 500 hours');
