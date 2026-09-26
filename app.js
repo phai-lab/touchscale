@@ -127,13 +127,12 @@ const chartData = {
 };
 const sceneChart = document.querySelector('#scene-composition');
 const scenePie = window.createScenePie(sceneChart, chartData.scenes);
-const projectedSceneHours = chartData.scenes.reduce((total, [, hours]) => total + hours, 0);
 function renderChart(kind) {
   const bars = document.querySelector('#distribution-bars');
   scenePie.reset();
   sceneChart.hidden = kind !== 'scenes';
   bars.hidden = kind === 'scenes';
-  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? `${projectedSceneHours.toFixed(1)} h projected` : '1,964 descriptions · 500 h estimate';
+  document.querySelector('#chart-unit').textContent = kind === 'scenes' ? '~500 h' : '1,964 descriptions · ~500 h';
   if (kind === 'scenes') return;
   const maximum = Math.max(...chartData.verbs.map(row => row[1]));
   bars.setAttribute('aria-label', 'Verb frequencies across an estimated 1,964 task descriptions for 500 hours');

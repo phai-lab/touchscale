@@ -7,12 +7,12 @@
   <meta name="description" content="TouchScale: 500 hours of human vision and touch for visual-tactile learning.">
   <title>TouchScale</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=hero-tube-hd-1">
+  <link rel="stylesheet" href="styles.css?v=transfer-labels-1">
   <link rel="stylesheet" href="chart.css?v=umi-source-2">
   <script src="samples.js?v=umi-source-2" defer></script>
   <script src="wall.js?v=wall20-clean-2" defer></script>
   <script src="chart.js" defer></script>
-  <script src="app.js?v=diversity-20260925" defer></script>
+  <script src="app.js?v=transfer-labels-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#capture">Skip to content</a>
@@ -36,7 +36,13 @@
           </div>
         </figure>
       </div>
-      <p class="project-intro">Human-to-robot visual–tactile transfer.</p>
+      <p class="project-intro transfer-flow" aria-label="Human visual–tactile data transfers to robot skills through TouchScale">
+        <span>Human visual–tactile data</span>
+        <svg class="transfer-arrow" viewBox="0 0 40 16" aria-hidden="true"><path d="M1 8h36M30 1l7 7-7 7"/></svg>
+        <strong class="transfer-bridge">TouchScale</strong>
+        <svg class="transfer-arrow" viewBox="0 0 40 16" aria-hidden="true"><path d="M1 8h36M30 1l7 7-7 7"/></svg>
+        <span>Robot skills</span>
+      </p>
     </section>
 
     <section id="capture">
@@ -66,7 +72,7 @@
       </div>
       <p>500 hours across laboratories, kitchens, workbenches, and everyday environments.</p>
       <div class="distribution-panel">
-        <div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">503.6 h projected</span></div>
+        <div class="chart-toolbar"><div class="segmented" role="group" aria-label="Select distribution chart"><button class="active" data-chart="scenes" aria-pressed="true">Scene composition</button><button data-chart="verbs" aria-pressed="false">Task description verbs</button></div><span id="chart-unit">~500 h</span></div>
         <div id="scene-composition"></div>
         <div id="distribution-bars" class="distribution-bars" aria-label="Task description verb frequencies" hidden></div>
       </div>
@@ -93,47 +99,47 @@
 
       <div class="task-group" id="compare-sorting" data-comparison="sorting">
         <h4>(1) Soft / Hard Sorting</h4>
-        <div class="task-copy"><u><b>Task</b></u> Identify the soft object and place it in the tray.</div>
+        <div class="task-copy"><u><b>Task:</b></u> Identify the soft object and place it in the tray.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
               <video id="sorting-demonstration" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-demo.webp" aria-label="Soft / Hard Sorting, human demonstration"><source src="assets/videos/sorting-demo.mp4" type="video/mp4"></video>
               <span class="video-kind">Demonstration</span>
             </div>
-            <figcaption>Human demonstration</figcaption>
+            <figcaption>With TouchScale</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
               <video id="sorting-baseline" data-playback-group="sorting" controls playsinline muted preload="none" poster="assets/images/sorting-baseline.webp" aria-label="Soft / Hard Sorting, without touchscale"><source src="assets/videos/sorting-baseline.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Without TouchScale</figcaption>
+            <figcaption><strong class="without-label">Without</strong> TouchScale</figcaption>
           </figure>
         </div></div>
       </div>
       <div class="task-group" id="compare-cap" data-comparison="cap">
         <h4>(2) Bottle-Cap Removal</h4>
-        <div class="task-copy"><u><b>Task</b></u> Remove the cap and release it into the tray.</div>
+        <div class="task-copy"><u><b>Task:</b></u> Remove the cap and release it into the tray.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="cap-success" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-success-hd.webp" aria-label="Bottle-Cap Removal, successful policy rollout"><source src="assets/videos/cap-success-hd.mp4" type="video/mp4"></video>
+              <video id="cap-success" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-success-hd.webp" aria-label="Bottle-Cap Removal, TouchScale policy rollout"><source src="assets/videos/cap-success-hd.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Successful rollout</figcaption>
+            <figcaption>TouchScale</figcaption>
           </figure>
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
-              <video id="cap-fail" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-fail-hd.webp" aria-label="Bottle-Cap Removal, failed policy rollout"><source src="assets/videos/cap-fail-hd.mp4" type="video/mp4"></video>
+              <video id="cap-fail" data-playback-group="cap" controls playsinline muted preload="none" poster="assets/images/cap-fail-hd.webp" aria-label="Bottle-Cap Removal, policy rollout without TouchScale"><source src="assets/videos/cap-fail-hd.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Failed rollout</figcaption>
+            <figcaption><strong class="without-label">Without</strong> TouchScale</figcaption>
           </figure>
         </div></div>
       </div>
       <div class="task-group" id="compare-tube" data-comparison="tube">
         <h4>(3) Test-Tube Transfer</h4>
-        <div class="task-copy"><u><b>Task</b></u> Move the test tube to another rack slot and release it.</div>
+        <div class="task-copy"><u><b>Task:</b></u> Move the test tube to another rack slot and release it.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
@@ -147,13 +153,13 @@
               <video id="tube-baseline" data-playback-group="tube" controls playsinline muted preload="none" poster="assets/images/tube-baseline.webp" aria-label="Test-Tube Transfer, without touchscale"><source src="assets/videos/tube-baseline.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Without TouchScale</figcaption>
+            <figcaption><strong class="without-label">Without</strong> TouchScale</figcaption>
           </figure>
         </div></div>
       </div>
       <div class="task-group" id="compare-wipe" data-comparison="wipe">
         <h4>(4) Whiteboard Wipe</h4>
-        <div class="task-copy"><u><b>Task</b></u> Grasp the cloth and erase the mark on the board.</div>
+        <div class="task-copy"><u><b>Task:</b></u> Grasp the cloth and erase the mark on the board.</div>
         <div class="box alt policy-pair"><div class="row 50% uniform">
           <figure class="media-column half robot-card">
             <div class="image fit policy-media">
@@ -167,7 +173,7 @@
               <video id="wipe-baseline" data-playback-group="wipe" controls playsinline muted preload="none" poster="assets/images/wipe-baseline.webp" aria-label="Whiteboard Wipe, without touchscale"><source src="assets/videos/wipe-baseline.mp4" type="video/mp4"></video>
               <span class="video-kind">Policy rollout</span>
             </div>
-            <figcaption>Without TouchScale</figcaption>
+            <figcaption><strong class="without-label">Without</strong> TouchScale</figcaption>
           </figure>
         </div></div>
       </div>

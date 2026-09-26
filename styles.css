@@ -28,6 +28,9 @@ hr{border:0;border-bottom:solid 2px #efefef;margin:2em 0}
 .opening-media video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#fff}
 .opening .opening-media{margin-bottom:0}
 .opening .project-intro{margin:1em 0 0;text-align:center;padding-right:var(--gutter)}
+.transfer-flow{display:flex;align-items:center;justify-content:center;gap:.75em;white-space:nowrap}
+.transfer-flow .transfer-bridge{color:var(--accent);font-weight:700}
+.transfer-arrow{display:block;flex:0 0 2em;width:2em;height:.8em;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 /* The 50% uniform grid and media geometry used by UMI's hardware and task rows. */
 .row{width:100%;border-bottom:solid 1px transparent;box-sizing:border-box}
 .row>*{float:left;box-sizing:border-box}
@@ -44,6 +47,7 @@ hr{border:0;border-bottom:solid 2px #efefef;margin:2em 0}
 .image.fit img{display:block;width:100%;height:auto}
 .row.uniform.setup-figure{margin-top:.5em}
 .policy-pair{margin:1em 0}.policy-media.image.fit{margin-bottom:.5em}
+.policy-pair figcaption .without-label{color:var(--accent);font-weight:700}
 .policy-media video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff}
 .task-group{margin-top:2em}.task-group+.task-group{margin-top:1em}
 .task-group+.task-group{border-top:2px solid #efefef;margin-top:2em;padding-top:2em}
