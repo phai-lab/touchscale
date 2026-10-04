@@ -1,0 +1,9 @@
+# System requirement: ffmpeg and ffprobe on PATH.
+numpy
+opencv-python
+matplotlib
+imageio
+imageio-ffmpeg
+Pillow
+requests
+pytest  # tests only
