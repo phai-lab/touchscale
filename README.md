@@ -1,6 +1,24 @@
-# TouchScale
+<h2 align="center"><a href="https://touch-scale.github.io/">TouchScale: 500 Hours of Human Vision and Touch for Visual–Tactile Learning</a></h2>
 
-**500 hours of human vision and touch for visual-tactile learning.**
+<h5 align="center">
+
+[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b.svg?logo=arXiv)](https://touch-scale.github.io/) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/2077AIDataFoundation/TouchScale)
+[![Home Page](https://img.shields.io/badge/Project-Website-green.svg)](https://touch-scale.github.io/) [![Blog](https://img.shields.io/badge/Blog-Overfit%20Lab-orange.svg)](https://www.overfitlab.ai/research/touchscale)
+</h5>
+
+<div align="center">
+This repository is the official code release for TouchScale, a 500-hour egocentric visual–tactile dataset of everyday human manipulation,
+recorded with a wearable RGB-D camera, two wrist cameras, and bimanual tactile gloves.
+</div>
+<br>
+
+<p align="center">
+  <a href="https://touch-scale.github.io/"><img src="assets/touchscale_wall.webp" width="100%" alt="TouchScale video wall: twenty egocentric recordings of gloved hands manipulating objects"></a>
+  <br>
+  <em>500 hours across laboratories, kitchens, workbenches, and everyday environments.</em>
+</p>
+
+## Overview
 
 TouchScale is a large-scale egocentric visual-tactile dataset of everyday
 manipulation, recorded in laboratories, kitchens, workbenches, and other
