@@ -2,7 +2,7 @@
 
 <p align="center">
 Dayou Li<sup>1,*</sup>, Hao Wang<sup>2,*</sup>, Qianqian Yang<sup>3,*</sup>, Zihao Zhu<sup>1,*</sup>, Haoquan Fang<sup>4</sup>, Ziyao Zeng<sup>5</sup>, Yan Han<sup>6</sup>, Zihan Wang<sup>7</sup>, Yan Wang<sup>8</sup>,
-Baoruo Huang<sup>9</sup>, Dilin Wang<sup>10</sup>, Kenji Shimada<sup>3</sup>, Yiyue Luo<sup>11</sup>, Manling Li<sup>12</sup>, Teresa Lv<sup>13</sup>, Mustafa Mukadam<sup>11</sup>, Rakesh Ranjan<sup>10</sup>,
+Baoru Huang<sup>9</sup>, Dilin Wang<sup>10</sup>, Kenji Shimada<sup>3</sup>, Yiyue Luo<sup>11</sup>, Manling Li<sup>12</sup>, Teresa Lv<sup>13</sup>, Mustafa Mukadam<sup>11</sup>, Rakesh Ranjan<sup>10</sup>,
 Ruohan Zhang<sup>4</sup>, Qi He<sup>6</sup>, Changliu Liu<sup>3</sup>, Xu Chen<sup>11</sup>, Marco Pavone<sup>4,8</sup>, Bangya Liu<sup>7</sup>, Jiachen Li<sup>14</sup>, Masayoshi Tomizuka<sup>15</sup>, Zhiwen Fan<sup>1,†</sup>
 </p>
 
@@ -16,7 +16,7 @@ Ruohan Zhang<sup>4</sup>, Qi He<sup>6</sup>, Changliu Liu<sup>3</sup>, Xu Chen<s
 
 <h5 align="center">
 
-[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b.svg?logo=arXiv)](https://touch-scale.github.io/) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/2077AIDataFoundation/TouchScale)
+[![arXiv](https://img.shields.io/badge/Arxiv-2610.10288-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2610.10288) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/2077AIDataFoundation/TouchScale)
 [![Home Page](https://img.shields.io/badge/Project-Website-green.svg)](https://touch-scale.github.io/) [![Blog](https://img.shields.io/badge/Blog-Overfit%20Lab-orange.svg)](https://www.overfitlab.ai/research/touchscale)
 </h5>
 
@@ -68,3 +68,19 @@ python run_qc.py --data /path/to/recordings --out qc_out
 ## License
 
 Code in this repository is released under the [MIT License](LICENSE).
+
+## Citation
+
+If you find TouchScale useful in your research, please cite:
+
+```bibtex
+@misc{li2026touchscale500hourshuman,
+      title={TouchScale: 500 Hours of Human Vision and Touch for Visual-Tactile Learning},
+      author={Dayou Li and Hao Wang and Qianqian Yang and Zihao Zhu and Haoquan Fang and Ziyao Zeng and Yan Han and Zihan Wang and Yan Wang and Baoru Huang and Dilin Wang and Kenji Shimada and Yiyue Luo and Manling Li and Teresa Lv and Mustafa Mukadam and Rakesh Ranjan and Ruohan Zhang and Qi He and Changliu Liu and Xu Chen and Marco Pavone and Bangya Liu and Jiachen Li and Masayoshi Tomizuka and Zhiwen Fan},
+      year={2026},
+      eprint={2610.10288},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2610.10288},
+}
+```
