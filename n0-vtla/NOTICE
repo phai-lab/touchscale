@@ -1,0 +1,55 @@
+N0-VTLA
+Copyright 2026 NeoteAI
+
+This product includes software derived from OpenPI
+(https://github.com/Physical-Intelligence/openpi), Copyright Physical Intelligence,
+licensed under the Apache License, Version 2.0.
+
+The vision-tactile-language-action model, post-training, evaluation, and serving
+code is based on the OpenPI framework and has been modified by NeoteAI to
+add tactile conditioning through predicted latent tactile tokens.
+
+n0vtla/models_pytorch/transformers_replace/ contains modified copies of four files
+from HuggingFace Transformers 4.53.2, Copyright Google Inc., Google AI, and the
+HuggingFace Inc. team, licensed under the Apache License, Version 2.0:
+
+    models/gemma/configuration_gemma.py    - modified
+    models/gemma/modeling_gemma.py         - modified
+    models/paligemma/modeling_paligemma.py - modified
+    models/siglip/modeling_siglip.py       - modified
+
+As required by Section 4(b) of that licence, we state that NeoteAI has changed these
+files. The modifications add the adaptive RMSNorm (adaRMS) conditioning that the
+action expert uses to inject the flow-matching timestep, drop the PaliGemma
+image-feature rescaling, and align SigLIP dtype handling. The original copyright
+headers are retained in each file.
+
+models/siglip/check.py in that directory is not derived from Transformers; it is an
+original installation check written for this project.
+
+n0vtla/models/ contains code taken from Big Vision
+(https://github.com/google-research/big_vision), Copyright 2024 Big Vision Authors
+and Google LLC, licensed under the Apache License, Version 2.0, with modifications.
+
+DINOv2 (https://github.com/facebookresearch/dinov2) is used for tactile encoding
+and LeRobot (https://github.com/huggingface/lerobot) for data handling, each under
+their respective licenses.
+
+MODEL WEIGHTS
+
+Original material in this repository is licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International Public License (CC BY-SA 4.0), as
+described in LICENSE.
+
+Third-party components retain their original licenses. Apache-2.0-licensed
+components are identified above, and the full Apache License 2.0 text is
+preserved in LICENSES/Apache-2.0.txt.
+
+CC BY-SA 4.0 does not cover the released N0-VTLA model weights.
+
+Those weights are initialised from Google's PaliGemma checkpoint
+(gs://vertex-model-garden-paligemma-us/paligemma/pt_224.npz) and therefore remain
+derivatives of Google's Gemma model family. They are made available under the Gemma
+Terms of Use (https://ai.google.dev/gemma/terms) and the Gemma Prohibited Use Policy
+(https://ai.google.dev/gemma/prohibited_use_policy). Anyone redistributing or
+fine-tuning these weights must comply with both.

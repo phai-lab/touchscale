@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ML artifacts (never commit weights / logs / data)
+checkpoints/
+wandb/
+logs/
+train_logs/
+*.safetensors
+*.pt
+*.ckpt
+*.pth
+*.bin
+*.onnx
+*.h5
+*.pkl
+*.log
+*.bak
+*.bak_*
+
+# Local caches and secrets
+.cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+
+# Manuscript sources live alongside the code but are never part of the release.
+# Anchored and capitalised to avoid shadowing the n0vtla/ package on
+# case-insensitive filesystems.
+# NOTE: on case-insensitive filesystems (macOS/Windows, where git defaults to
+# core.ignorecase=true) `/N0VTLA/` also matches the real `/n0vtla/` package and would hide
+# new, untracked files under it. The real package is therefore un-ignored explicitly below.
+/N0VTLA/
+!/n0vtla/
+
+# data / assets (norm stats are computed per-dataset, provided out-of-band)
+# Anchored to the repo root so source packages like src/n0vtla/models/ stay tracked.
+/data/
+/datasets/
+/assets/
+/pretrained/
+/models/
+/outputs/
+/artifacts/
+
+# Internal cluster runbook: names live pools, queues, CFS instances, load balancers and
+# bastion hosts. Keep it in the internal docs vault, never in this repository.
+/aihc/
+
+# OS
+.DS_Store

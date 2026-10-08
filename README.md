@@ -67,7 +67,7 @@ python run_qc.py --data /path/to/recordings --out qc_out
 
 ## License
 
-Code in this repository is released under the [MIT License](LICENSE).
+Code in this repository is released under the [MIT License](LICENSE), with one exception: the `n0-vtla/` directory is derived from [NeoteAI's N0-VTLA](https://github.com/neoteai/N0-VTLA) and remains under its original [CC BY-SA 4.0 license](n0-vtla/LICENSE) (third-party notices in `n0-vtla/NOTICE` and `n0-vtla/LICENSES/`). The N0-VTLA model weights are governed by the Gemma Terms of Use.
 
 ## Citation
 

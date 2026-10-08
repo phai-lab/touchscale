@@ -1,0 +1,29 @@
+# Run with:
+# docker compose -f scripts/docker/compose.yml up --build
+services:
+  n0vtla_server:
+    image: n0vtla_server
+    build:
+      context: ../..
+      dockerfile: scripts/docker/serve_policy.Dockerfile
+    init: true
+    tty: true
+    network_mode: host
+    # Populate configured n0vtla data home to /n0vtla_assets inside the container.
+    # Populate aws credential inside the container.
+    volumes:
+      - $PWD:/app
+      - ${N0VTLA_DATA_HOME:-~/.cache/n0vtla}:/n0vtla_assets
+    environment:
+      - SERVER_ARGS
+      - N0VTLA_DATA_HOME=/n0vtla_assets
+      - IS_DOCKER=true
+
+    # Comment out this block if not running on a machine with GPUs.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
