@@ -8,6 +8,9 @@
 qc_out/
 *.partial.mp4
 
+# model checkpoints (downloaded / trained, see n0-vtla/docs)
+checkpoints/
+
 # Python
 __pycache__/
 *.pyc

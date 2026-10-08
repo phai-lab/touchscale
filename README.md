@@ -1,36 +1,24 @@
-<h2 align="center"><a href="https://touch-scale.github.io/">TouchScale: 500 Hours of Human Vision and Touch for Visual–Tactile Learning</a></h2>
+## [TouchScale: 500 Hours of Human Vision and Touch for Visual–Tactile Learning](https://touch-scale.github.io/)
 
-<p align="center">
-Dayou Li<sup>1,*</sup>, Hao Wang<sup>2,*</sup>, Qianqian Yang<sup>3,*</sup>, Zihao Zhu<sup>1,*</sup>, Haoquan Fang<sup>4</sup>, Ziyao Zeng<sup>5</sup>, Yan Han<sup>6</sup>, Zihan Wang<sup>7</sup>, Yan Wang<sup>8</sup>,
-Baoru Huang<sup>9</sup>, Dilin Wang<sup>10</sup>, Kenji Shimada<sup>3</sup>, Yiyue Luo<sup>11</sup>, Manling Li<sup>12</sup>, Teresa Lv<sup>13</sup>, Mustafa Mukadam<sup>11</sup>, Rakesh Ranjan<sup>10</sup>,
-Ruohan Zhang<sup>4</sup>, Qi He<sup>6</sup>, Changliu Liu<sup>3</sup>, Xu Chen<sup>11</sup>, Marco Pavone<sup>4,8</sup>, Bangya Liu<sup>7</sup>, Jiachen Li<sup>14</sup>, Masayoshi Tomizuka<sup>15</sup>, Zhiwen Fan<sup>1,†</sup>
-</p>
+Dayou Li1,*, Hao Wang2,*, Qianqian Yang3,*, Zihao Zhu1,*, Haoquan Fang4, Ziyao Zeng5, Yan Han6, Zihan Wang7, Yan Wang8, Baoru Huang9, Dilin Wang10, Kenji Shimada3, Yiyue Luo11, Manling Li12, Teresa Lv13, Mustafa Mukadam11, Rakesh Ranjan10, Ruohan Zhang4, Qi He6, Changliu Liu3, Xu Chen11, Marco Pavone4,8, Bangya Liu7, Jiachen Li14, Masayoshi Tomizuka15, Zhiwen Fan1,†
 
-<p align="center">
-<sup>1</sup>Texas A&amp;M University&nbsp;&nbsp; <sup>2</sup>Google DeepMind&nbsp;&nbsp; <sup>3</sup>CMU&nbsp;&nbsp; <sup>4</sup>Stanford University&nbsp;&nbsp; <sup>5</sup>Yale University&nbsp;&nbsp;
-<sup>6</sup>Microsoft&nbsp;&nbsp; <sup>7</sup>Overfit Lab&nbsp;&nbsp; <sup>8</sup>NVIDIA&nbsp;&nbsp; <sup>9</sup>University of Liverpool&nbsp;&nbsp; <sup>10</sup>Meta&nbsp;&nbsp;
-<sup>11</sup>University of Washington&nbsp;&nbsp; <sup>12</sup>Northwestern University&nbsp;&nbsp; <sup>13</sup>Sony&nbsp;&nbsp; <sup>14</sup>Georgia Tech&nbsp;&nbsp; <sup>15</sup>UC Berkeley
-<br>
-<sup>*</sup>Equal contribution&nbsp;&nbsp; <sup>†</sup>Corresponding author
-</p>
+1Texas A&M University   2Google DeepMind   3CMU   4Stanford University   5Yale University   6Microsoft   7Overfit Lab   8NVIDIA   9University of Liverpool   10Meta   11University of Washington   12Northwestern University   13Sony   14Georgia Tech   15UC Berkeley   
+*Equal contribution   †Corresponding author
 
-<h5 align="center">
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2610.10288-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2610.10288) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/2077AIDataFoundation/TouchScale)
-[![Home Page](https://img.shields.io/badge/Project-Website-green.svg)](https://touch-scale.github.io/) [![Blog](https://img.shields.io/badge/Blog-Overfit%20Lab-orange.svg)](https://www.overfitlab.ai/research/touchscale)
-</h5>
 
-<div align="center">
-This repository is the official code release for TouchScale, a 500-hour egocentric visual–tactile dataset of everyday human manipulation,
-recorded with a wearable RGB-D camera, two wrist cameras, and bimanual tactile gloves.
-</div>
-<br>
+![arXiv](https://img.shields.io/badge/Arxiv-2610.10288-b31b1b.svg?logo=arXiv) ![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)
+![Home Page](https://img.shields.io/badge/Project-Website-green.svg) ![Blog](https://img.shields.io/badge/Blog-Overfit%20Lab-orange.svg)
 
-<p align="center">
-  <a href="https://touch-scale.github.io/"><img src="assets/touchscale_wall.webp" width="100%" alt="TouchScale video wall: twenty egocentric recordings of gloved hands manipulating objects"></a>
-  <br>
-  <em>500 hours across laboratories, kitchens, workbenches, and everyday environments.</em>
-</p>
+
+
+This repository is the official code release for TouchScale, a 500-hour egocentric visual–tactile dataset of everyday human manipulation, recorded with a wearable RGB-D camera, two wrist cameras, and bimanual tactile gloves.
+
+  
+
+
+![TouchScale video wall: twenty egocentric recordings of gloved hands manipulating objects](assets/touchscale_wall.webp)  
+*500 hours across laboratories, kitchens, workbenches, and everyday environments.*
 
 ## Overview
 
@@ -41,7 +29,7 @@ everyday environments. A single wearable setup records:
 - a head-mounted **RGB-D camera** for the overall interaction,
 - two **wrist-mounted RGB cameras** for close views of hand-object contact (both at 30 Hz),
 - bimanual **tactile gloves**, each with 880 taxels across the five fingers and
-  palm at under 2 mm spatial resolution, recording normal and shear force.
+palm at under 2 mm spatial resolution, recording normal and shear force.
 
 Mid-training on TouchScale teaches a policy to predict how touch will change
 before robot post-training. In real-robot experiments this raised task success
@@ -51,9 +39,14 @@ tactile contact prediction and egocentric action recognition.
 
 ## Repository contents
 
-| Path | Description |
-|---|---|
-| [`qc/`](qc/) | The automatic data-quality pipeline used to screen recordings: a timestamp sync gate across all six sensor streams, and a VLM-assisted check for missing tactile signal and baseline noise. See [`qc/README.md`](qc/README.md). |
+
+| Path                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[qc/](qc/)`           | The automatic data-quality pipeline used to screen recordings: a timestamp sync gate across all six sensor streams, and a VLM-assisted check for missing tactile signal and baseline noise. See `[qc/README.md](qc/README.md)`.                                                                                                                                                                                                                                                               |
+| `[n0-vtla/](n0-vtla/)` | The visual–tactile–action policy (a derivative of [NeoteAI's N0-VTLA](https://github.com/neoteai/N0-VTLA)) with the TouchScale additions: action-free **mid-training** of the tactile branch on human TouchScale data, and **post-training** on your own robot recordings (data conversion, normalization scripts, launcher, real-robot inference notes). Start with `[n0-vtla/docs/MID_TRAIN.md](n0-vtla/docs/MID_TRAIN.md)` and `[n0-vtla/docs/POST_TRAIN.md](n0-vtla/docs/POST_TRAIN.md)`. |
+
+
+
 
 ## Quick start (QC)
 
@@ -64,6 +57,29 @@ python check_sync.py --root /path/to/recordings
 cp .env.example .env                     # add a Gemini API key for the tactile QC stage
 python run_qc.py --data /path/to/recordings --out qc_out
 ```
+
+
+
+## Quick start (N0-VTLA: mid-training and post-training)
+
+Checkpoints are expected to live in a `checkpoints/` folder next to `n0-vtla/`. Install the environment as in `[n0-vtla/docs/INSTALL.md](n0-vtla/docs/INSTALL.md)`, then:
+
+```bash
+cd n0-vtla
+hf download NeoteAI/n0-vtla-base --local-dir ../checkpoints/n0-vtla-base     # original N0-VTLA weights
+
+# 1) Mid-train the tactile branch on TouchScale recordings (details: docs/MID_TRAIN.md)
+python scripts/build_per_task_scale_normalization.py --raw-root /path/to/touchscale_raw --out per_task_scale.json --workers 16
+VTLA_ITW_RAW_ROOT=/path/to/touchscale_raw VTLA_ITW_NORMALIZATION=$PWD/per_task_scale.json \
+  VTLA_PRETRAINED_CHECKPOINT=$PWD/../checkpoints/n0-vtla-base bash train_stage1.sh
+
+# 2) Convert your robot recordings, then post-train (details: docs/POST_TRAIN.md)
+#    INIT=original   starts from the original checkpoint
+#    INIT=touchscale starts from the original checkpoint + the mid-training result of step 1
+INIT=touchscale DATASET=/path/to/canonical_dataset ASSET_ID=my_asset bash scripts/posttrain.sh
+```
+
+
 
 ## License
 
@@ -84,3 +100,4 @@ If you find TouchScale useful in your research, please cite:
       url={https://arxiv.org/abs/2610.10288},
 }
 ```
+
