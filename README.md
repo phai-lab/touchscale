@@ -143,11 +143,6 @@ Checkpoints are expected to live in a `checkpoints/` folder next to `n0-vtla/`.
 This work is built on many amazing research works and open-source projects, thanks a lot to all the authors for sharing!
 
 - [N0-VTLA](https://github.com/neoteai/N0-VTLA)
-- [OpenPI](https://github.com/Physical-Intelligence/openpi)
-- [Big Vision](https://github.com/google-research/big_vision)
-- [Hugging Face Transformers](https://github.com/huggingface/transformers)
-- [DINOv2](https://github.com/facebookresearch/dinov2)
-- [LeRobot](https://github.com/huggingface/lerobot)
 
 ## License
 
